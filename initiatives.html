@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Initiatives for Change - STEM + Games</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .initiative-card {
+            background-color: #1f2937; /* bg-gray-800 */
+            border: 1px solid #374151; /* border-gray-700 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .initiative-card:hover {
+            transform: translateY(-5px);
+            border-color: #22d3ee; /* border-cyan-400 */
+            box-shadow: 0 10px 20px rgba(34, 211, 238, 0.1);
+        }
+        .card-content {
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+    <!-- Header & Navigation -->
+    <header class="bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between md:justify-start md:gap-10">
+                <a href="index.html" class="text-2xl font-bold text-cyan-400 flex-shrink-0">
+                    STEM<span class="text-white">+</span>Games
+                </a>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-gray-300 hover:text-cyan-400 transition-colors">Home</a>
+                    <a href="showcase.html" class="text-gray-300 hover:text-cyan-400 transition-colors">Game Showcase</a>
+                    <a href="design.html" class="text-gray-300 hover:text-cyan-400 transition-colors">Game Design</a>
+                    <a href="resources.html" class="text-gray-300 hover:text-cyan-400 transition-colors">Resources</a>
+                    <a href="roles.html" class="text-gray-300 hover:text-cyan-400 transition-colors">Dev Roles</a>
+                    <a href="profiles.html" class="text-gray-300 hover:text-cyan-400 transition-colors">Profiles</a>
+                    <a href="initiatives.html" class="text-cyan-400 font-bold transition-colors">Initiatives</a>
+                    <a href="get-involved.html" class="text-gray-300 hover:text-cyan-400 transition-colors">Get Involved</a>
+                    <a href="quest.html" class="text-gray-300 hover:text-cyan-400 transition-colors">STEM Quest</a>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4">
+                <a href="index.html" class="block py-2 text-gray-300 hover:text-cyan-400">Home</a>
+                <a href="showcase.html" class="block py-2 text-gray-300 hover:text-cyan-400">Game Showcase</a>
+                <a href="design.html" class="block py-2 text-gray-300 hover:text-cyan-400">Intro to Game Design</a>
+                <a href="resources.html" class="block py-2 text-gray-300 hover:text-cyan-400">Free Resources</a>
+                <a href="roles.html" class="block py-2 text-gray-300 hover:text-cyan-400">Game Dev Roles</a>
+                <a href="profiles.html" class="block py-2 text-gray-300 hover:text-cyan-400">Industry Profiles</a>
+                <a href="initiatives.html" class="block py-2 text-cyan-400 font-bold">Initiatives for Change</a>
+                <a href="get-involved.html" class="block py-2 text-gray-300 hover:text-cyan-400">Get Involved</a>
+                <a href="quest.html" class="block py-2 text-gray-300 hover:text-cyan-400">STEM Quest</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-16">
+        <div class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-black tracking-tight text-cyan-400">Initiatives for Change</h1>
+            <p class="mt-4 text-lg text-gray-400 max-w-3xl mx-auto">
+                The games industry is filled with passionate people working to create positive change. The organizations below are leading the charge in using games for education, environmental action, and social equity, helping to make the world a better, more inclusive, and more sustainable place.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Games for Change -->
+            <div class="initiative-card rounded-xl p-6">
+                <div class="card-content">
+                    <h2 class="text-2xl font-bold text-white">Games for Change</h2>
+                    <p class="mt-2 text-gray-400">A non-profit that empowers game creators and social innovators to drive real-world impact through games and immersive media. They address issues like education, human rights, and climate change.</p>
+                </div>
+                <a href="https://www.gamesforchange.org/" target="_blank" class="mt-4 inline-block text-cyan-400 font-semibold hover:text-cyan-300 transition-colors">Visit Website &rarr;</a>
+            </div>
+
+            <!-- Playing for the Planet -->
+            <div class="initiative-card rounded-xl p-6">
+                <div class="card-content">
+                    <h2 class="text-2xl font-bold text-white">Playing for the Planet</h2>
+                    <p class="mt-2 text-gray-400">Facilitated by the UN Environment Programme, this alliance encourages the video game industry to reduce its carbon footprint and integrate environmental themes ("green activations") into major games.</p>
+                </div>
+                <a href="https://www.playing4theplanet.org/" target="_blank" class="mt-4 inline-block text-cyan-400 font-semibold hover:text-cyan-300 transition-colors">Visit Website &rarr;</a>
+            </div>
+
+            <!-- Green Game Jam -->
+            <div class="initiative-card rounded-xl p-6">
+                <div class="card-content">
+                    <h2 class="text-2xl font-bold text-white">Green Game Jam</h2>
+                    <p class="mt-2 text-gray-400">An annual event run by Playing for the Planet where studios from around the world add environmentally-themed content to their games to raise awareness and funds for conservation efforts.</p>
+                </div>
+                <a href="https://www.playing4theplanet.org/green-game-jam" target="_blank" class="mt-4 inline-block text-cyan-400 font-semibold hover:text-cyan-300 transition-colors">Visit Website &rarr;</a>
+            </div>
+
+            <!-- AbleGamers -->
+            <div class="initiative-card rounded-xl p-6">
+                <div class="card-content">
+                    <h2 class="text-2xl font-bold text-white">AbleGamers</h2>
+                    <p class="mt-2 text-gray-400">A non-profit charity dedicated to improving accessibility in the video game space. They work with developers and provide resources to ensure that people with disabilities can play and enjoy games without barriers.</p>
+                </div>
+                <a href="https://ablegamers.org/" target="_blank" class="mt-4 inline-block text-cyan-400 font-semibold hover:text-cyan-300 transition-colors">Visit Website &rarr;</a>
+            </div>
+
+            <!-- Gina Davis Institute -->
+            <div class="initiative-card rounded-xl p-6">
+                <div class="card-content">
+                    <h2 class="text-2xl font-bold text-white">Gina Davis Institute</h2>
+                    <p class="mt-2 text-gray-400">This research-based organization works within the media and entertainment industry to eliminate negative stereotypes and create gender balance, fostering inclusion and reducing stereotypes in media aimed at children.</p>
+                </div>
+                <a href="https://seejane.org/" target="_blank" class="mt-4 inline-block text-cyan-400 font-semibold hover:text-cyan-300 transition-colors">Visit Website &rarr;</a>
+            </div>
+
+            <!-- UNICEF RITEC Framework -->
+            <div class="initiative-card rounded-xl p-6">
+                <div class="card-content">
+                    <h2 class="text-2xl font-bold text-white">UNICEF RITEC Framework</h2>
+                    <p class="mt-2 text-gray-400">The Responsible Innovation in Technology for Children (RITEC) project provides a framework to help developers create digital experiences that respect and support children's rights, focusing on safety, inclusivity, and empowerment.</p>
+                </div>
+                <a href="https://www.unicef.org/child-rights-business/ritec" target="_blank" class="mt-4 inline-block text-cyan-400 font-semibold hover:text-cyan-300 transition-colors">Visit Website &rarr;</a>
+            </div>
+
+            <!-- Minecraft Education -->
+            <div class="initiative-card rounded-xl p-6">
+                <div class="card-content">
+                    <h2 class="text-2xl font-bold text-white">Minecraft Education</h2>
+                    <p class="mt-2 text-gray-400">A game-based learning platform that uses the beloved world of Minecraft to teach a wide range of subjects, including coding, chemistry, history, and problem-solving in an immersive, collaborative environment.</p>
+                </div>
+                <a href="https://education.minecraft.net/" target="_blank" class="mt-4 inline-block text-cyan-400 font-semibold hover:text-cyan-300 transition-colors">Visit Website &rarr;</a>
+            </div>
+            
+            <!-- Roblox Education -->
+            <div class="initiative-card rounded-xl p-6">
+                <div class="card-content">
+                    <h2 class="text-2xl font-bold text-white">Roblox Education</h2>
+                    <p class="mt-2 text-gray-400">Provides resources for students and educators to use the Roblox platform for learning. It brings concepts from physics, art, and coding to life in immersive 3D worlds that students already love to explore.</p>
+                </div>
+                <a href="https://corp.roblox.com/education/" target="_blank" class="mt-4 inline-block text-cyan-400 font-semibold hover:text-cyan-300 transition-colors">Visit Website &rarr;</a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 border-t border-gray-700 mt-16">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-400 text-sm">
+            <p>&copy; 2025 <a href="https://uoes.rutgers.edu" target="_blank" class="hover:text-white hover:underline">Rutgers University Online Education Services</a></p>
+            <div class="mt-4">
+                 <a href="https://nj4h.rutgers.edu/join-stem-ambassadors/" target="_blank" class="hover:text-white hover:underline">Rutgers 4-H STEM Ambassadors</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+</html>
