@@ -24,12 +24,16 @@
             color: #9ca3af; /* text-gray-400 */
         }
         /* Making links in notes look consistent */
-        .collaboration-note a {
+        .collaboration-note a, .game-link {
             color: #67e8f9; /* lighter cyan for links */
             text-decoration: none;
+            font-weight: 600;
         }
-        .collaboration-note a:hover {
+        .collaboration-note a:hover, .game-link:hover {
             text-decoration: underline;
+        }
+        .card-content {
+            flex-grow: 1;
         }
     </style>
 </head>
@@ -89,10 +93,11 @@
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="card-hover bg-gray-800 rounded-lg overflow-hidden flex flex-col">
                         <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/crabgod.webp" alt="Crab God Game" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e3a8a/ffffff?text=Crab+God';">
-                        <div class="p-6 flex-grow">
+                        <div class="p-6 flex-grow card-content">
                             <h3 class="text-xl font-bold text-white">Crab God</h3>
                             <p class="mt-2 text-gray-400">Nurture a vibrant underwater ecosystem and guide your crablings to safety in this atmospheric strategy game that touches on biology and healthcare for a fragile population.</p>
                         </div>
+                        <div class="p-6 pt-0"><a href="https://firesquid.games/games/crab-god" target="_blank" class="game-link">Visit Website &rarr;</a></div>
                     </div>
                 </div>
             </section>
@@ -103,38 +108,39 @@
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                      <div class="card-hover bg-gray-800 rounded-lg overflow-hidden flex flex-col">
                         <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/crabgod.webp" alt="Crab God Game" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e3a8a/ffffff?text=Crab+God';">
-                        <div class="p-6 flex-grow">
+                        <div class="p-6 flex-grow card-content">
                             <h3 class="text-xl font-bold text-white">Crab God</h3>
                             <p class="mt-2 text-gray-400">An underwater strategy game where you must protect the egg of the next Crab God. Build and defend a coral reef, manage resources, and learn about marine conservation.</p>
                         </div>
+                        <div class="p-6 pt-0"><a href="https://firesquid.games/games/crab-god" target="_blank" class="game-link">Visit Website &rarr;</a></div>
                     </div>
                     <div class="card-hover bg-gray-800 rounded-lg overflow-hidden flex flex-col">
                         <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/minecraft.jpg" alt="Minecraft National Parks" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/22c55e/ffffff?text=Minecraft';">
-                        <div class="p-6 flex-grow">
+                        <div class="p-6 flex-grow card-content">
                             <h3 class="text-xl font-bold text-white">Minecraft National Parks</h3>
                             <p class="mt-2 text-gray-400">Explore and learn about America's beautiful national parks through custom-built Minecraft worlds. A creative way to engage with ecology and environmental science.</p>
                         </div>
+                         <div class="p-6 pt-0"><a href="https://www.minecraft.net/en-us/article/minecraft-national-park" target="_blank" class="game-link">Visit Website &rarr;</a></div>
                     </div>
                     <div class="card-hover bg-gray-800 rounded-lg overflow-hidden flex flex-col">
                         <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/ava.jpg" alt="Creatures of AVA" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/84cc16/ffffff?text=Creatures+of+AVA';">
-                        <div class="p-6 flex-grow">
+                        <div class="p-6 flex-grow card-content">
                             <h3 class="text-xl font-bold text-white">Creatures of AVA</h3>
                             <p class="mt-2 text-gray-400">A unique creature-saving game where you must understand, tame, and heal the creatures of planet Ava from an infection, promoting empathy and ecological awareness.</p>
                         </div>
+                        <div class="p-6 pt-0"><a href="https://store.steampowered.com/app/2304440/Creatures_of_Ava/" target="_blank" class="game-link">Visit Website &rarr;</a></div>
                     </div>
                     <div class="card-hover bg-gray-800 rounded-lg overflow-hidden flex flex-col">
                         <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/Bloom-FB.jpg" alt="Bloom: The Saga of the Fertilizer Economy" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/16a34a/ffffff?text=Bloom';">
-                        <div class="p-6 flex-grow">
+                        <div class="p-6 flex-grow card-content">
                             <h3 class="text-xl font-bold text-white">Bloom: The Saga of the Fertilizer Economy</h3>
                             <p class="mt-2 text-gray-400">Dive into the complex world of modern agriculture. This game explores the economic and environmental impacts of fertilizer, challenging players to find a sustainable balance.</p>
                         </div>
-                        <div class="p-6 pt-0">
-                            <p class="collaboration-note"><a href="https://fielddaylab.wisc.edu/play/bloom/" target="_blank">Free to Play on the Web</a></p>
-                        </div>
+                        <div class="p-6 pt-0 collaboration-note"><a href="https://fielddaylab.wisc.edu/play/bloom/" target="_blank">Free to Play on the Web</a></div>
                     </div>
                      <div class="card-hover bg-gray-800 rounded-lg overflow-hidden flex flex-col">
                         <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/arbor.jpg" alt="ARbor Trail Game" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/4d7c0f/ffffff?text=ARbor+Trail';">
-                        <div class="p-6 flex-grow">
+                        <div class="p-6 flex-grow card-content">
                             <div class="flex justify-between items-start mb-2">
                                 <h3 class="text-xl font-bold">ARbor Trail</h3>
                                 <span class="inline-block bg-indigo-100 text-indigo-800 text-xs font-semibold px-2.5 py-1 rounded-full whitespace-nowrap">AR Game</span>
@@ -155,27 +161,27 @@
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="card-hover bg-gray-800 rounded-lg overflow-hidden flex flex-col">
                         <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/wake.jpg" alt="Wake: Tales from the Aqualab" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/3b82f6/ffffff?text=Wake';">
-                        <div class="p-6 flex-grow">
+                        <div class="p-6 flex-grow card-content">
                              <h3 class="text-xl font-bold text-white">Wake: Tales from the Aqualab</h3>
                             <p class="mt-2 text-gray-400">A physics-based puzzle game where you manipulate water in its different states (solid, liquid, gas) to solve challenges and learn about scientific principles.</p>
                         </div>
-                         <div class="p-6 pt-0">
-                            <p class="collaboration-note"><a href="https://fielddaylab.wisc.edu/play/wake/" target="_blank">Free to Play on the Web</a></p>
-                        </div>
+                         <div class="p-6 pt-0 collaboration-note"><a href="https://fielddaylab.wisc.edu/play/wake/" target="_blank">Free to Play on the Web</a></div>
                     </div>
                     <div class="card-hover bg-gray-800 rounded-lg overflow-hidden flex flex-col">
                         <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/snails.webp" alt="Killer Snails Game" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/6366f1/ffffff?text=Killer+Snails';">
-                        <div class="p-6 flex-grow">
+                        <div class="p-6 flex-grow card-content">
                             <h3 class="text-xl font-bold text-white">Killer Snails</h3>
                             <p class="mt-2 text-gray-400">This card game, supported by digital tools, dives into the amazing world of venomous marine snails, teaching concepts of biology, ecology, and medicine.</p>
                         </div>
+                        <div class="p-6 pt-0"><a href="https://killersnails.com/" target="_blank" class="game-link">Visit Website &rarr;</a></div>
                     </div>
                      <div class="card-hover bg-gray-800 rounded-lg overflow-hidden flex flex-col">
                         <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/starstuff.jpg" alt="Star Stuff Game" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/a855f7/ffffff?text=Star+Stuff';">
-                        <div class="p-6 flex-grow">
+                        <div class="p-6 flex-grow card-content">
                             <h3 class="text-xl font-bold text-white">Star Stuff</h3>
                             <p class="mt-2 text-gray-400">A cosmic puzzle game about a young alien scientist. Program bots to help you tackle challenges, experiment with mechanics, and explore the wonders of astrophysics.</p>
                         </div>
+                        <div class="p-6 pt-0"><a href="https://www.starstuffgame.com/" target="_blank" class="game-link">Visit Website &rarr;</a></div>
                     </div>
                 </div>
             </section>
@@ -186,10 +192,11 @@
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="card-hover bg-gray-800 rounded-lg overflow-hidden flex flex-col">
                         <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/tablecraft.png" alt="Tablecraft Game" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/0891b2/ffffff?text=Tablecraft';">
-                        <div class="p-6 flex-grow">
+                        <div class="p-6 flex-grow card-content">
                             <h3 class="text-xl font-bold text-white">Tablecraft</h3>
                             <p class="mt-2 text-gray-400">An interactive game that brings the periodic table to life. Combine elements to discover compounds and reactions in a fun, block-based world.</p>
                         </div>
+                         <div class="p-6 pt-0 collaboration-note"><a href="https://www.notsuspicious.biz/" target="_blank">Visit Website &rarr;</a></div>
                     </div>
                 </div>
             </section>
@@ -199,31 +206,20 @@
                 <h2 class="text-3xl font-bold border-l-4 border-cyan-400 pl-4 mb-8">Technology and Engineering</h2>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="card-hover bg-gray-800 rounded-lg overflow-hidden flex flex-col">
-                        <img src="https://placehold.co/600x400/f97316/ffffff?text=VESL+VR" alt="VESL VR" class="w-full h-48 object-cover">
-                        <div class="p-6 flex-grow">
-                            <h3 class="text-xl font-bold text-white">VESL VR</h3>
-                            <p class="mt-2 text-gray-400">Virtual Engineering and Science Labs (VESL) provides immersive VR experiences for learning complex engineering concepts in a hands-on, safe environment.</p>
-                        </div>
-                    </div>
-                    <div class="card-hover bg-gray-800 rounded-lg overflow-hidden flex flex-col">
                         <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/verizon.png" alt="Verizon Learning Lab" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/ef4444/ffffff?text=Verizon+Lab';">
-                        <div class="p-6 flex-grow">
+                        <div class="p-6 flex-grow card-content">
                             <h3 class="text-xl font-bold text-white">Verizon Learning Lab</h3>
                             <p class="mt-2 text-gray-400">An augmented reality app that brings learning to life. Explore everything from the human body to space exploration right in your own room.</p>
                         </div>
-                        <div class="p-6 pt-0">
-                            <p class="collaboration-note"><a href="https://www.verizon.com/learning/ar-vr-apps/Verizon-Innovative-Learning-Lab/28" target="_blank">Free to Play on the Web</a></p>
-                        </div>
+                        <div class="p-6 pt-0 collaboration-note"><a href="https://www.verizon.com/learning/ar-vr-apps/Verizon-Innovative-Learning-Lab/28" target="_blank">Free to Play on the Web</a></div>
                     </div>
                     <div class="card-hover bg-gray-800 rounded-lg overflow-hidden flex flex-col">
                         <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/greenerhouse.jpg" alt="Greener House (Roblox)" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/10b981/ffffff?text=Greener+House';">
-                        <div class="p-6 flex-grow">
+                        <div class="p-6 flex-grow card-content">
                             <h3 class="text-xl font-bold text-white">Greener House (Roblox)</h3>
                             <p class="mt-2 text-gray-400">Learn about sustainable living and green engineering by designing and maintaining an eco-friendly house within the popular Roblox platform.</p>
                         </div>
-                        <div class="p-6 pt-0">
-                            <p class="collaboration-note"><a href="https://www.roblox.com/games/14952020677/Greener-House-Beta" target="_blank">Free to Play on Roblox</a></p>
-                        </div>
+                        <div class="p-6 pt-0 collaboration-note"><a href="https://www.roblox.com/games/14952020677/Greener-House-Beta" target="_blank">Free to Play on Roblox</a></div>
                     </div>
                 </div>
             </section>
@@ -234,13 +230,11 @@
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="card-hover bg-gray-800 rounded-lg overflow-hidden flex flex-col">
                         <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/nuclear.jpg" alt="Nuclear Negotiator" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/f59e0b/ffffff?text=Nuclear+Negotiator';">
-                        <div class="p-6 flex-grow">
+                        <div class="p-6 flex-grow card-content">
                             <h3 class="text-xl font-bold text-white">Nuclear Negotiator</h3>
                             <p class="mt-2 text-gray-400">A serious game that puts you in the shoes of a diplomat. Navigate complex geopolitical situations and learn about nuclear policy and international relations.</p>
                         </div>
-                        <div class="p-6 pt-0">
-                            <p class="collaboration-note"><a href="https://nuclear-negotiator.co.uk/" target="_blank">Free to Play on the Web</a></p>
-                        </div>
+                        <div class="p-6 pt-0 collaboration-note"><a href="https://nuclear-negotiator.co.uk/" target="_blank">Free to Play on the Web</a></div>
                     </div>
                 </div>
             </section>
@@ -251,30 +245,27 @@
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="card-hover bg-gray-800 rounded-lg overflow-hidden flex flex-col">
                         <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/challenges.png" alt="Challenges of High School Game" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/8b5cf6/ffffff?text=High+School';">
-                        <div class="p-6 flex-grow">
+                        <div class="p-6 flex-grow card-content">
                             <h3 class="text-xl font-bold text-white">Challenges of High School</h3>
                             <p class="mt-2 text-gray-400">Follow Alex and Lia, two autistic teens, as you help them navigate the challenges of adolescence and high school in this empathetic narrative experience.</p>
                         </div>
-                        <div class="p-6 pt-0">
-                           <p class="collaboration-note">Developed in collaboration with <a href="https://uoes.rutgers.edu" target="_blank">Rutgers UOES</a> and SMIL.</p>
-                        </div>
+                        <div class="p-6 pt-0 collaboration-note">Developed in collaboration with <a href="https://uoes.rutgers.edu" target="_blank">Rutgers UOES</a> and SMIL.</div>
                     </div>
                     <div class="card-hover bg-gray-800 rounded-lg overflow-hidden flex flex-col">
                         <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/somethingwrong.png" alt="Is there something wrong with my child Game" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/7c3aed/ffffff?text=Support';">
-                        <div class="p-6 flex-grow">
+                        <div class="p-6 flex-grow card-content">
                             <h3 class="text-xl font-bold text-white">Is there something wrong with my child</h3>
                             <p class="mt-2 text-gray-400">Explore scenarios that help shift from a deficit model to one of full potential, learning how to create better support for individuals with autism and their families.</p>
                         </div>
-                         <div class="p-6 pt-0">
-                           <p class="collaboration-note">Developed in collaboration with <a href="https://uoes.rutgers.edu" target="_blank">Rutgers UOES</a> and SMIL.</p>
-                        </div>
+                         <div class="p-6 pt-0 collaboration-note">Developed in collaboration with <a href="https://uoes.rutgers.edu" target="_blank">Rutgers UOES</a> and SMIL.</div>
                     </div>
                     <div class="card-hover bg-gray-800 rounded-lg overflow-hidden flex flex-col">
                         <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/impulse.webp" alt="Impulse Playing with Reality Game" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/6d28d9/ffffff?text=Impulse+VR';">
-                        <div class="p-6 flex-grow">
+                        <div class="p-6 flex-grow card-content">
                             <h3 class="text-xl font-bold text-white">Impulse: Playing with Reality</h3>
                             <p class="mt-2 text-gray-400">A VR experience that delves into the human mind, exploring impulse control and decision-making through engaging, interactive scenarios.</p>
                         </div>
+                        <div class="p-6 pt-0"><a href="https://impulse-xr.io/" target="_blank" class="game-link">Visit Website &rarr;</a></div>
                     </div>
                 </div>
             </section>
@@ -285,23 +276,19 @@
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="card-hover bg-gray-800 rounded-lg overflow-hidden flex flex-col">
                         <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/gill.png" alt="Gill's Diner Game" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/eab308/ffffff?text=Gill%27s+Diner';">
-                        <div class="p-6 flex-grow">
+                        <div class="p-6 flex-grow card-content">
                             <h3 class="text-xl font-bold text-white">Gill's Diner</h3>
-                            <p class="mt-2 text-gray-400">Step into a virtual diner to learn about food safety, nutrition, and the science behind cooking in this fun and fast-paced game.</p>
+                            <p class="mt-2 text-gray-400">A game where you help Gill create plates based off the My Plate food groups.</p>
                         </div>
-                        <div class="p-6 pt-0">
-                           <p class="collaboration-note">Developed by <a href="https://uoes.rutgers.edu" target="_blank">Rutgers UOES</a> in collaboration with '<a href="https://foodwastelessons.rutgers.edu/" target="_blank">NJ Leaves No Bite Behind</a>'.</p>
-                        </div>
+                        <div class="p-6 pt-0 collaboration-note">Developed by <a href="https://uoes.rutgers.edu" target="_blank">Rutgers UOES</a> in collaboration with '<a href="https://foodwastelessons.rutgers.edu/" target="_blank">NJ Leaves No Bite Behind</a>'.</div>
                     </div>
                     <div class="card-hover bg-gray-800 rounded-lg overflow-hidden flex flex-col">
                         <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/plants.png" alt="Parts of a Plant Game" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/ca8a04/ffffff?text=Plant+Parts';">
-                        <div class="p-6 flex-grow">
+                        <div class="p-6 flex-grow card-content">
                             <h3 class="text-xl font-bold text-white">Parts of a Plant</h3>
-                            <p class="mt-2 text-gray-400">An educational game that makes botany exciting. Identify and learn the functions of different plant parts to help your virtual garden grow.</p>
+                            <p class="mt-2 text-gray-400">A game for kindergartners to help them identify parts of plants and where food comes from.</p>
                         </div>
-                        <div class="p-6 pt-0">
-                           <p class="collaboration-note">Developed by <a href="https://uoes.rutgers.edu" target="_blank">Rutgers UOES</a> in collaboration with '<a href="https://foodwastelessons.rutgers.edu/" target="_blank">NJ Leaves No Bite Behind</a>'.</p>
-                        </div>
+                        <div class="p-6 pt-0 collaboration-note">Developed by <a href="https://uoes.rutgers.edu" target="_blank">Rutgers UOES</a> in collaboration with '<a href="https://foodwastelessons.rutgers.edu/" target="_blank">NJ Leaves No Bite Behind</a>'.</div>
                     </div>
                 </div>
             </section>
@@ -312,17 +299,19 @@
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="card-hover bg-gray-800 rounded-lg overflow-hidden flex flex-col">
                         <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/neocab.jpg" alt="Neo Cab" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/ec4899/ffffff?text=Neo+Cab';">
-                        <div class="p-6 flex-grow">
+                        <div class="p-6 flex-grow card-content">
                             <h3 class="text-xl font-bold text-white">Neo Cab</h3>
                             <p class="mt-2 text-gray-400">A narrative game exploring the future of AI and automation. As one of the last human drivers, you must balance your emotional state with the needs of your passengers.</p>
                         </div>
+                         <div class="p-6 pt-0"><a href="https://neocabgame.com/" target="_blank" class="game-link">Visit Website &rarr;</a></div>
                     </div>
                     <div class="card-hover bg-gray-800 rounded-lg overflow-hidden flex flex-col">
                         <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/eliza.jpg" alt="Eliza Game" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/d946ef/ffffff?text=Eliza';">
-                        <div class="p-6 flex-grow">
+                        <div class="p-6 flex-grow card-content">
                             <h3 class="text-xl font-bold text-white">Eliza</h3>
                             <p class="mt-2 text-gray-400">A visual novel about an AI counseling app. It raises profound questions about the role of technology in mental health, data privacy, and the limits of artificial intelligence.</p>
                         </div>
+                        <div class="p-6 pt-0"><a href="https://www.zachtronics.com/eliza/" target="_blank" class="game-link">Visit Website &rarr;</a></div>
                     </div>
                 </div>
             </section>
