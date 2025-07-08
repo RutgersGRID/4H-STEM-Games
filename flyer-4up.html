@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STEM + Games Flyer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        @media screen {
+            body {
+                background-color: #e5e7eb; /* bg-gray-200 */
+            }
+            .page {
+                width: 8.5in;
+                height: 11in;
+                margin: 2rem auto;
+                box-shadow: 0 0 10px rgba(0,0,0,0.5);
+                background-color: white;
+            }
+        }
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            .page {
+                width: 100%;
+                height: 100vh;
+                margin: 0;
+                padding: 0;
+                box-shadow: none;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+        .flyer {
+            width: 50%;
+            height: 50%;
+            box-sizing: border-box;
+            border: 1px dashed #d1d5db; /* border-gray-300 */
+            float: left;
+            font-family: 'Inter', sans-serif;
+            padding: 0.25in;
+            display: flex;
+            flex-direction: column;
+        }
+        .banner-image {
+            height: 1.25in;
+            background-image: url('https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/banner.png');
+            background-size: cover;
+            background-position: center;
+            border-radius: 0.25rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="no-print p-4 bg-gray-800 text-white text-center">
+        <h1 class="text-xl font-bold">Flyer Preview</h1>
+        <p>This is a preview of your 4-up flyer sheet. Use your browser's print function (Ctrl/Cmd + P) to print.</p>
+    </div>
+
+    <div class="page">
+        <!-- Flyer 1 -->
+        <div class="flyer">
+            <div class="flex flex-col h-full text-center">
+                <div class="banner-image"></div>
+                <h2 class="text-2xl font-black text-cyan-600 mt-4">Level Up Your World</h2>
+                <p class="text-sm text-gray-700 mt-2 flex-grow">
+                    Ready to turn your passion for science and gaming into real-world impact? Explore our new site for 4-H STEM Ambassadors to discover your path, get inspired by amazing games, and access free tools to build your own project!
+                </p>
+                <div class="mt-4">
+                    <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/qr.jpg" alt="QR Code" class="w-28 h-28 mx-auto">
+                    <p class="mt-2 font-bold text-gray-800">Scan to Explore!</p>
+                    <p class="text-sm font-semibold text-cyan-700">go.rutgers.edu/4hstemgames</p>
+                </div>
+                <p class="text-xs text-gray-500 mt-auto pt-2">
+                    Presented by Rutgers University Online Education Services (uoes.rutgers.edu)
+                </p>
+            </div>
+        </div>
+        <!-- Flyer 2 -->
+        <div class="flyer">
+            <div class="flex flex-col h-full text-center">
+                <div class="banner-image"></div>
+                <h2 class="text-2xl font-black text-cyan-600 mt-4">Level Up Your World</h2>
+                <p class="text-sm text-gray-700 mt-2 flex-grow">
+                    Ready to turn your passion for science and gaming into real-world impact? Explore our new site for 4-H STEM Ambassadors to discover your path, get inspired by amazing games, and access free tools to build your own project!
+                </p>
+                <div class="mt-4">
+                    <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/qr.jpg" alt="QR Code" class="w-28 h-28 mx-auto">
+                    <p class="mt-2 font-bold text-gray-800">Scan to Explore!</p>
+                    <p class="text-sm font-semibold text-cyan-700">go.rutgers.edu/4hstemgames</p>
+                </div>
+                <p class="text-xs text-gray-500 mt-auto pt-2">
+                    Presented by Rutgers University Online Education Services (uoes.rutgers.edu)
+                </p>
+            </div>
+        </div>
+        <!-- Flyer 3 -->
+        <div class="flyer">
+            <div class="flex flex-col h-full text-center">
+                <div class="banner-image"></div>
+                <h2 class="text-2xl font-black text-cyan-600 mt-4">Level Up Your World</h2>
+                <p class="text-sm text-gray-700 mt-2 flex-grow">
+                    Ready to turn your passion for science and gaming into real-world impact? Explore our new site for 4-H STEM Ambassadors to discover your path, get inspired by amazing games, and access free tools to build your own project!
+                </p>
+                <div class="mt-4">
+                    <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/qr.jpg" alt="QR Code" class="w-28 h-28 mx-auto">
+                    <p class="mt-2 font-bold text-gray-800">Scan to Explore!</p>
+                    <p class="text-sm font-semibold text-cyan-700">go.rutgers.edu/4hstemgames</p>
+                </div>
+                <p class="text-xs text-gray-500 mt-auto pt-2">
+                    Presented by Rutgers University Online Education Services (uoes.rutgers.edu)
+                </p>
+            </div>
+        </div>
+        <!-- Flyer 4 -->
+        <div class="flyer">
+            <div class="flex flex-col h-full text-center">
+                <div class="banner-image"></div>
+                <h2 class="text-2xl font-black text-cyan-600 mt-4">Level Up Your World</h2>
+                <p class="text-sm text-gray-700 mt-2 flex-grow">
+                    Ready to turn your passion for science and gaming into real-world impact? Explore our new site for 4-H STEM Ambassadors to discover your path, get inspired by amazing games, and access free tools to build your own project!
+                </p>
+                <div class="mt-4">
+                    <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/qr.jpg" alt="QR Code" class="w-28 h-28 mx-auto">
+                    <p class="mt-2 font-bold text-gray-800">Scan to Explore!</p>
+                    <p class="text-sm font-semibold text-cyan-700">go.rutgers.edu/4hstemgames</p>
+                </div>
+                <p class="text-xs text-gray-500 mt-auto pt-2">
+                    Presented by Rutgers University Online Education Services (uoes.rutgers.edu)
+                </p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
