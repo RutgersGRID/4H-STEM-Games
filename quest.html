@@ -13,24 +13,10 @@
         body {
             font-family: 'Inter', sans-serif;
         }
-        /* Shimmer animation for highlights */
-        @keyframes shimmer {
-            0% { transform: translateX(-100%) rotate(20deg); }
-            100% { transform: translateX(100%) rotate(20deg); }
-        }
-        .shimmer::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-            animation: shimmer 3s infinite;
-        }
         .path-chip.selected {
             transform: translateY(-2px) scale(1.05);
             box-shadow: 0 0 15px rgba(34, 211, 238, 0.5);
+            border-color: #22d3ee;
         }
     </style>
 </head>
@@ -60,7 +46,7 @@
                     <a href="quest.html" class="text-cyan-400 font-bold transition-colors">STEM Quest</a>
                 </div>
             </div>
-            <!-- Mobile Menu -->
+             <!-- Mobile Menu -->
             <div id="mobile-menu" class="hidden md:hidden mt-4">
                 <a href="index.html" class="block py-2 text-gray-300 hover:text-cyan-400">Home</a>
                 <a href="showcase.html" class="block py-2 text-gray-300 hover:text-cyan-400">Game Showcase</a>
@@ -160,4 +146,220 @@
                         </div>
                         <button id="export-button" class="mt-4 w-full flex items-center justify-center gap-2 bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-3 px-4 rounded-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                              <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V
+                              <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            <span>Export My Profile</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Panel -->
+                <div class="w-full lg:w-3/5">
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <!-- Scenario Cards -->
+                        <div class="scenario-card bg-gray-800 border border-gray-700 rounded-xl p-4 flex flex-col gap-3">
+                            <h3 class="font-bold text-white">🏥 The School Health Crisis</h3>
+                            <p class="text-sm text-gray-400 flex-grow">Students are getting sick, and the school nurse notices patterns. The principal asks for your help to solve this mystery.</p>
+                            <div class="scenario-paths flex flex-col gap-2">
+                                <div class="path-chip comp cursor-pointer bg-blue-600 hover:bg-blue-500 p-2 rounded-md text-center text-xs font-bold transition-all border-2 border-transparent">💻 Track data & find illness patterns</div>
+                                <div class="path-chip sci cursor-pointer bg-pink-600 hover:bg-pink-500 p-2 rounded-md text-center text-xs font-bold transition-all border-2 border-transparent">🔬 Test what's causing the illness</div>
+                                <div class="path-chip eng cursor-pointer bg-teal-600 hover:bg-teal-500 p-2 rounded-md text-center text-xs font-bold transition-all border-2 border-transparent">⚙️ Design better air filtration systems</div>
+                            </div>
+                            <div>
+                                <label class="text-xs font-bold text-cyan-400">My approach:</label>
+                                <textarea placeholder="How would you do it?" class="w-full bg-gray-900 border border-gray-600 rounded-md p-2 text-sm mt-1 h-16 resize-none focus:ring-2 focus:ring-cyan-500 outline-none"></textarea>
+                            </div>
+                        </div>
+
+                         <div class="scenario-card bg-gray-800 border border-gray-700 rounded-xl p-4 flex flex-col gap-3">
+                            <h3 class="font-bold text-white">🌊 The Polluted Lake</h3>
+                            <p class="text-sm text-gray-400 flex-grow">The local lake is turning green and fish are dying. Your town needs to figure out what's happening and how to fix it quickly.</p>
+                            <div class="scenario-paths flex flex-col gap-2">
+                                <div class="path-chip comp cursor-pointer bg-blue-600 hover:bg-blue-500 p-2 rounded-md text-center text-xs font-bold transition-all border-2 border-transparent">💻 Model water quality data over time</div>
+                                <div class="path-chip sci cursor-pointer bg-pink-600 hover:bg-pink-500 p-2 rounded-md text-center text-xs font-bold transition-all border-2 border-transparent">🔬 Test water chemistry and organisms</div>
+                                <div class="path-chip eng cursor-pointer bg-teal-600 hover:bg-teal-500 p-2 rounded-md text-center text-xs font-bold transition-all border-2 border-transparent">⚙️ Build water cleanup systems</div>
+                            </div>
+                            <div>
+                                <label class="text-xs font-bold text-cyan-400">My approach:</label>
+                                <textarea placeholder="How would you do it?" class="w-full bg-gray-900 border border-gray-600 rounded-md p-2 text-sm mt-1 h-16 resize-none focus:ring-2 focus:ring-cyan-500 outline-none"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="scenario-card bg-gray-800 border border-gray-700 rounded-xl p-4 flex flex-col gap-3">
+                            <h3 class="font-bold text-white">🎮 The Broken Educational Game</h3>
+                            <p class="text-sm text-gray-400 flex-grow">Your favorite educational game crashes constantly. The school wants to fix it so everyone can learn better.</p>
+                            <div class="scenario-paths flex flex-col gap-2">
+                                <div class="path-chip comp cursor-pointer bg-blue-600 hover:bg-blue-500 p-2 rounded-md text-center text-xs font-bold transition-all border-2 border-transparent">💻 Debug the code and fix crashes</div>
+                                <div class="path-chip sci cursor-pointer bg-pink-600 hover:bg-pink-500 p-2 rounded-md text-center text-xs font-bold transition-all border-2 border-transparent">🔬 Study how students actually use it</div>
+                                <div class="path-chip eng cursor-pointer bg-teal-600 hover:bg-teal-500 p-2 rounded-md text-center text-xs font-bold transition-all border-2 border-transparent">⚙️ Redesign the user interface</div>
+                            </div>
+                            <div>
+                                <label class="text-xs font-bold text-cyan-400">My approach:</label>
+                                <textarea placeholder="How would you do it?" class="w-full bg-gray-900 border border-gray-600 rounded-md p-2 text-sm mt-1 h-16 resize-none focus:ring-2 focus:ring-cyan-500 outline-none"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="scenario-card bg-gray-800 border border-gray-700 rounded-xl p-4 flex flex-col gap-3">
+                            <h3 class="font-bold text-white">🌱 The Failing Garden</h3>
+                            <p class="text-sm text-gray-400 flex-grow">The school garden won't grow despite constant care. Plants are dying and nobody knows why.</p>
+                            <div class="scenario-paths flex flex-col gap-2">
+                                <div class="path-chip comp cursor-pointer bg-blue-600 hover:bg-blue-500 p-2 rounded-md text-center text-xs font-bold transition-all border-2 border-transparent">💻 Track growth patterns and conditions</div>
+                                <div class="path-chip sci cursor-pointer bg-pink-600 hover:bg-pink-500 p-2 rounded-md text-center text-xs font-bold transition-all border-2 border-transparent">🔬 Test soil, water, and plant health</div>
+                                <div class="path-chip eng cursor-pointer bg-teal-600 hover:bg-teal-500 p-2 rounded-md text-center text-xs font-bold transition-all border-2 border-transparent">⚙️ Design better irrigation systems</div>
+                            </div>
+                            <div>
+                                <label class="text-xs font-bold text-cyan-400">My approach:</label>
+                                <textarea placeholder="How would you do it?" class="w-full bg-gray-900 border border-gray-600 rounded-md p-2 text-sm mt-1 h-16 resize-none focus:ring-2 focus:ring-cyan-500 outline-none"></textarea>
+                            </div>
+                        </div>
+                        
+                        <!-- Create Your Own Challenge -->
+                        <div class="scenario-card md:col-span-2 bg-gray-800 border border-cyan-500/50 rounded-xl p-4 flex flex-col gap-3 shadow-lg shadow-cyan-500/10">
+                            <h3 class="font-bold text-cyan-400 text-center text-lg">🚀 YOUR CHALLENGE TO SOLVE</h3>
+                            <p class="text-sm text-gray-300 flex-grow text-center">What problem do YOU want to solve in your school, community, or the world?</p>
+                            <div>
+                                <label class="text-xs font-bold text-cyan-400">The problem I want to solve is:</label>
+                                <textarea placeholder="e.g., Students at my school throw away tons of food..." class="w-full bg-gray-900 border border-gray-600 rounded-md p-2 text-sm mt-1 h-16 resize-none focus:ring-2 focus:ring-cyan-500 outline-none"></textarea>
+                            </div>
+                            <div class="scenario-paths flex flex-col sm:flex-row gap-2">
+                                <div class="path-chip comp cursor-pointer bg-blue-600 hover:bg-blue-500 p-2 rounded-md text-center text-xs font-bold transition-all flex-1 border-2 border-transparent">💻 Use computing/data to solve it</div>
+                                <div class="path-chip sci cursor-pointer bg-pink-600 hover:bg-pink-500 p-2 rounded-md text-center text-xs font-bold transition-all flex-1 border-2 border-transparent">🔬 Use science/research to solve it</div>
+                                <div class="path-chip eng cursor-pointer bg-teal-600 hover:bg-teal-500 p-2 rounded-md text-center text-xs font-bold transition-all flex-1 border-2 border-transparent">⚙️ Use engineering/design to solve it</div>
+                            </div>
+                            <div>
+                                <label class="text-xs font-bold text-cyan-400">My chosen approach and how I would do it:</label>
+                                <textarea placeholder="e.g., I chose engineering because I'd design a smart lunch tray..." class="w-full bg-gray-900 border border-gray-600 rounded-md p-2 text-sm mt-1 h-16 resize-none focus:ring-2 focus:ring-cyan-500 outline-none"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 border-t border-gray-700 mt-16">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-400 text-sm">
+            <p>&copy; 2025 <a href="https://uoes.rutgers.edu" target="_blank" class="hover:text-white hover:underline">Rutgers University Online Education Services</a></p>
+            <div class="mt-4">
+                 <a href="https://nj4h.rutgers.edu/join-stem-ambassadors/" target="_blank" class="hover:text-white hover:underline">Rutgers 4-H STEM Ambassadors</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let stemStats = { computing: 0, science: 0, engineering: 0 };
+            const totalScenarios = document.querySelectorAll('.scenario-card').length;
+
+            const pathChips = document.querySelectorAll('.path-chip');
+            pathChips.forEach(chip => {
+                chip.addEventListener('click', function() {
+                    const parentPaths = this.parentElement;
+                    parentPaths.querySelectorAll('.path-chip').forEach(sibling => {
+                        sibling.classList.remove('selected');
+                    });
+                    this.classList.add('selected');
+                    updateStats();
+                });
+            });
+
+            function updateStats() {
+                stemStats = { computing: 0, science: 0, engineering: 0 };
+                const selectedChips = document.querySelectorAll('.path-chip.selected');
+                
+                selectedChips.forEach(chip => {
+                    if (chip.classList.contains('comp')) stemStats.computing++;
+                    else if (chip.classList.contains('sci')) stemStats.science++;
+                    else if (chip.classList.contains('eng')) stemStats.engineering++;
+                });
+
+                updateProgressBars();
+                updateProfile();
+            }
+
+            function updateProgressBars() {
+                const maxChoices = totalScenarios;
+                
+                const compPercent = (stemStats.computing / maxChoices) * 100;
+                document.querySelector('.computing-fill').style.width = `${compPercent}%`;
+                document.querySelector('.progress-bar:nth-child(1) .count-display').textContent = `${stemStats.computing}/${maxChoices}`;
+
+                const sciPercent = (stemStats.science / maxChoices) * 100;
+                document.querySelector('.science-fill').style.width = `${sciPercent}%`;
+                document.querySelector('.progress-bar:nth-child(2) .count-display').textContent = `${stemStats.science}/${maxChoices}`;
+
+                const engPercent = (stemStats.engineering / maxChoices) * 100;
+                document.querySelector('.engineering-fill').style.width = `${engPercent}%`;
+                document.querySelector('.progress-bar:nth-child(3) .count-display').textContent = `${stemStats.engineering}/${maxChoices}`;
+            }
+
+            function updateProfile() {
+                const profileElement = document.getElementById('stem-profile');
+                const total = stemStats.computing + stemStats.science + stemStats.engineering;
+
+                if (total === 0) {
+                    profileElement.textContent = 'Make a choice to see!';
+                    return;
+                }
+
+                const interests = [];
+                if (stemStats.computing > 0) interests.push({ name: 'Computing & Data', score: stemStats.computing });
+                if (stemStats.science > 0) interests.push({ name: 'Science & Discovery', score: stemStats.science });
+                if (stemStats.engineering > 0) interests.push({ name: 'Engineering & Tech', score: stemStats.engineering });
+
+                interests.sort((a, b) => b.score - a.score);
+
+                if (interests.length === 1) {
+                    profileElement.textContent = `A ${interests[0].name} Specialist!`;
+                } else if (interests.length === 2) {
+                    if (interests[0].score === interests[1].score) {
+                        profileElement.textContent = `A hybrid of ${interests[0].name} and ${interests[1].name}!`;
+                    } else {
+                        profileElement.textContent = `A ${interests[0].name} Innovator with a knack for ${interests[1].name}!`;
+                    }
+                } else if (interests.length === 3) {
+                     if (interests[0].score === interests[1].score && interests[1].score === interests[2].score) {
+                        profileElement.textContent = `A balanced STEM Renaissance Person!`;
+                    } else {
+                       profileElement.textContent = `A versatile ${interests[0].name} lead!`;
+                    }
+                }
+            }
+            
+            // --- EXPORT FUNCTIONALITY ---
+            const exportButton = document.getElementById('export-button');
+            const exportArea = document.getElementById('quest-results-area');
+
+            exportButton.addEventListener('click', () => {
+                exportButton.querySelector('span').textContent = 'Generating...';
+                exportButton.disabled = true;
+
+                html2canvas(exportArea, {
+                    backgroundColor: '#111827', 
+                    scale: 2
+                }).then(canvas => {
+                    const link = document.createElement('a');
+                    link.download = 'My-STEM-Quest-Profile.png';
+                    link.href = canvas.toDataURL('image/png');
+                    link.click();
+                    link.remove();
+                    exportButton.querySelector('span').textContent = 'Export My Profile';
+                    exportButton.disabled = false;
+                }).catch(err => {
+                    console.error('Oops, something went wrong!', err);
+                    exportButton.querySelector('span').textContent = 'Export Failed - Try Again';
+                    exportButton.disabled = false;
+                });
+            });
+
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
