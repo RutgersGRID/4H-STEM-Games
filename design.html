@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro to Game Design - STEM + Games</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .activity-card {
+            background-color: #1f2937; /* bg-gray-800 */
+            border: 1px solid #374151; /* border-gray-700 */
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .activity-card:hover {
+            border-color: #22d3ee; /* border-cyan-400 */
+        }
+        .game-box {
+            border: 2px dashed #4b5563; /* border-gray-600 */
+            background-color: #111827; /* bg-gray-900 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b7280; /* text-gray-500 */
+            font-weight: bold;
+            min-height: 300px;
+            transition: all 0.3s ease;
+        }
+        .game-box:hover {
+            border-color: #22d3ee;
+            color: #a5f3fc;
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            border-radius: 0.5rem;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+    <!-- Header & Navigation -->
+    <header class="bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between md:justify-start md:gap-10">
+                <a href="index.html" class="text-2xl font-bold text-cyan-400 flex-shrink-0">
+                    STEM<span class="text-white">+</span>Games
+                </a>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-gray-300 hover:text-cyan-400 transition-colors">Home</a>
+                    <a href="showcase.html" class="text-gray-300 hover:text-cyan-400 transition-colors">Game Showcase</a>
+                    <a href="design.html" class="text-cyan-400 font-bold transition-colors">Game Design</a>
+                    <a href="resources.html" class="text-gray-300 hover:text-cyan-400 transition-colors">Resources</a>
+                    <a href="roles.html" class="text-gray-300 hover:text-cyan-400 transition-colors">Dev Roles</a>
+                    <a href="profiles.html" class="text-gray-300 hover:text-cyan-400 transition-colors">Profiles</a>
+                    <a href="initiatives.html" class="text-gray-300 hover:text-cyan-400 transition-colors">Initiatives</a>
+                    <a href="get-involved.html" class="text-gray-300 hover:text-cyan-400 transition-colors">Get Involved</a>
+                    <a href="quest.html" class="text-gray-300 hover:text-cyan-400 transition-colors">STEM Quest</a>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4">
+                <a href="index.html" class="block py-2 text-gray-300 hover:text-cyan-400">Home</a>
+                <a href="showcase.html" class="block py-2 text-gray-300 hover:text-cyan-400">Game Showcase</a>
+                <a href="design.html" class="block py-2 text-cyan-400 font-bold">Intro to Game Design</a>
+                <a href="resources.html" class="block py-2 text-gray-300 hover:text-cyan-400">Free Resources</a>
+                <a href="roles.html" class="block py-2 text-gray-300 hover:text-cyan-400">Game Dev Roles</a>
+                <a href="profiles.html" class="block py-2 text-gray-300 hover:text-cyan-400">Industry Profiles</a>
+                <a href="initiatives.html" class="block py-2 text-gray-300 hover:text-cyan-400">Initiatives for Change</a>
+                <a href="get-involved.html" class="block py-2 text-gray-300 hover:text-cyan-400">Get Involved</a>
+                <a href="quest.html" class="block py-2 text-gray-300 hover:text-cyan-400">STEM Quest</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-16">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-black tracking-tight text-cyan-400">Introduction to Game Design</h1>
+            <p class="mt-4 text-lg text-gray-400 max-w-3xl mx-auto">
+                Designing a game is both an art and a science. Having a design document as a foundation can help organize your ideas and guide you or your team through development. Here are some activities to get you started.
+            <
