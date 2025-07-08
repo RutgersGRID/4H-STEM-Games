@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Dev Roles - STEM + Games</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .role-card {
+            background-color: #1f2937; /* bg-gray-800 */
+            border: 1px solid #374151; /* border-gray-700 */
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .role-card:hover {
+            transform: translateY(-5px);
+            border-color: #22d3ee; /* border-cyan-400 */
+            box-shadow: 0 4px 15px -3px rgba(34, 211, 238, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+    <!-- Header & Navigation -->
+    <header class="bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between md:justify-start md:gap-10">
+                <a href="index.html" class="text-2xl font-bold text-cyan-400 flex-shrink-0">
+                    STEM<span class="text-white">+</span>Games
+                </a>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-gray-300 hover:text-cyan-400 transition-colors">Home</a>
+                    <a href="showcase.html" class="text-gray-300 hover:text-cyan-400 transition-colors">Game Showcase</a>
+                    <a href="design.html" class="text-gray-300 hover:text-cyan-400 transition-colors">Game Design</a>
+                    <a href="resources.html" class="text-gray-300 hover:text-cyan-400 transition-colors">Resources</a>
+                    <a href="roles.html" class="text-cyan-400 font-bold transition-colors">Dev Roles</a>
+                    <a href="profiles.html" class="text-gray-300 hover:text-cyan-400 transition-colors">Profiles</a>
+                    <a href="initiatives.html" class="text-gray-300 hover:text-cyan-400 transition-colors">Initiatives</a>
+                    <a href="get-involved.html" class="text-gray-300 hover:text-cyan-400 transition-colors">Get Involved</a>
+                    <a href="quest.html" class="text-gray-300 hover:text-cyan-400 transition-colors">STEM Quest</a>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4">
+                <a href="index.html" class="block py-2 text-gray-300 hover:text-cyan-400">Home</a>
+                <a href="showcase.html" class="block py-2 text-gray-300 hover:text-cyan-400">Game Showcase</a>
+                <a href="design.html" class="block py-2 text-gray-300 hover:text-cyan-400">Intro to Game Design</a>
+                <a href="resources.html" class="block py-2 text-gray-300 hover:text-cyan-400">Free Resources</a>
+                <a href="roles.html" class="block py-2 text-cyan-400 font-bold">Game Dev Roles</a>
+                <a href="profiles.html" class="block py-2 text-gray-300 hover:text-cyan-400">Industry Profiles</a>
+                <a href="initiatives.html" class="block py-2 text-gray-300 hover:text-cyan-400">Initiatives for Change</a>
+                <a href="get-involved.html" class="block py-2 text-gray-300 hover:text-cyan-400">Get Involved</a>
+                <a href="quest.html" class="block py-2 text-gray-300 hover:text-cyan-400">STEM Quest</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-16">
+        <div class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-black tracking-tight text-cyan-400">Careers in Game Development</h1>
+            <p class="mt-4 text-lg text-gray-400 max-w-3xl mx-auto">
+                Game development is a universe of possibilities, and it's not just about programming! Creating a game is a massive team effort that requires artists, writers, managers, and scientists. Whatever your background or passion, there's a place for you. A team with diverse skills, experiences, and perspectives is an unstoppable force for creating innovative, meaningful, and unforgettable games. Your unique background is your greatest asset.
+            </p>
+        </div>
+
+        <div class="space-y-16">
+
+            <!-- Core Development Roles -->
+            <section>
+                <h2 class="text-3xl font-bold border-l-4 border-cyan-400 pl-4 mb-8">Creative & Design Roles</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="role-card rounded-lg p-6"><h3 class="text-xl font-bold text-white">Game Designer</h3><p class="mt-2 text-gray-400">The architect of fun. They design the core mechanics, rules, and systems that make a game engaging and enjoyable.</p></div>
+                    <div class="role-card rounded-lg p-6"><h3 class="text-xl font-bold text-white">Writer</h3><p class="mt-2 text-gray-400">Crafts the game's narrative, dialogue, character backstories, and world lore to create an immersive and compelling story.</p></div>
+                    <div class="role-card rounded-lg p-6"><h3 class="text-xl font-bold text-white">Level Designer</h3><p class="mt-2 text-gray-400">Builds the actual levels and environments where the game takes place, focusing on player flow, challenge, and pacing.</p></div>
+                    <div class="role-card rounded-lg p-6"><h3 class="text-xl font-bold text-white">Puzzle Designer</h3><p class="mt-2 text-gray-400">Specializes in creating clever and satisfying puzzles that challenge the player's logic, observation, or creativity.</p></div>
+                    <div class="role-card rounded-lg p-6"><h3 class="text-xl font-bold text-white">UI/UX Designer</h3><p class="mt-2 text-gray-400">Focuses on the User Interface (UI) and User Experience (UX), ensuring menus and controls are intuitive, accessible, and easy to use.</p></div>
+                </div>
+            </section>
+            
+            <section>
+                <h2 class="text-3xl font-bold border-l-4 border-cyan-400 pl-4 mb-8">Art & Visual Roles</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="role-card rounded-lg p-6"><h3 class="text-xl font-bold text-white">Concept Artist</h3><p class="mt-2 text-gray-400">Creates the initial artwork that establishes the visual style and feel of the game's characters, environments, and assets.</p></div>
+                    <div class="role-card rounded-lg p-6"><h3 class="text-xl font-bold text-white">Character Designer</h3><p class="mt-2 text-gray-400">Specializes in creating the look and personality of the game's characters, from heroes to villains.</p></div>
+                    <div class="role-card rounded-lg p-6"><h3 class="text-xl font-bold text-white">Environmental Designer</h3><p class="mt-2 text-gray-400">Designs the look and feel of the game's world, creating believable and atmospheric settings for the player to explore.</p></div>
+                    <div class="role-card rounded-lg p-6"><h3 class="text-xl font-bold text-white">3D Modeler</h3><p class="mt-2 text-gray-400">Builds the three-dimensional models for characters, props, and environments that populate the game world.</p></div>
+                    <div class="role-card rounded-lg p-6"><h3 class="text-xl font-bold text-white">Storyboarder</h3><p class="mt-2 text-gray-400">Creates sequential art to visualize key story moments and cutscenes, much like in filmmaking.</p></div>
+                    <div class="role-card rounded-lg p-6"><h3 class="text-xl font-bold text-white">Visual Designer</h3><p class="mt-2 text-gray-400">Works on the overall visual language of the game, including graphic design, typography, and branding.</p></div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-3xl font-bold border-l-4 border-cyan-400 pl-4 mb-8">Technical & Production Roles</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="role-card rounded-lg p-6"><h3 class="text-xl font-bold text-white">Developer/Programmer</h3><p class="mt-2 text-gray-400">Writes the code that brings the game to life, implementing game mechanics, AI, physics, and more.</p></div>
+                    <div class="role-card rounded-lg p-6"><h3 class="text-xl font-bold text-white">Project Manager</h3><p class="mt-2 text-gray-400">Organizes the development process, managing schedules, budgets, and communication to ensure the game is finished on time.</p></div>
+                    <div class="role-card rounded-lg p-6"><h3 class="text-xl font-bold text-white">Tester / QA Analyst</h3><p class="mt-2 text-gray-400">Finds and reports bugs, glitches, and design issues to ensure the game is stable, polished, and fun to play.</p></div>
+                    <div class="role-card rounded-lg p-6"><h3 class="text-xl font-bold text-white">Technologist</h3><p class="mt-2 text-gray-400">Researches and implements new technologies, tools, and pipelines to keep the development process modern and efficient.</p></div>
+                </div>
+            </section>
+            
+            <section>
+                <h2 class="text-3xl font-bold border-l-4 border-cyan-400 pl-4 mb-8">Expert & Support Roles</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                     <div class="role-card rounded-lg p-6"><h3 class="text-xl font-bold text-white">Subject Matter Expert (SME)</h3><p class="mt-2 text-gray-400">Provides deep knowledge on a specific topic (like history, physics, or biology) to ensure the game is accurate and authentic.</p></div>
+                    <div class="role-card rounded-lg p-6"><h3 class="text-xl font-bold text-white">Researcher</h3><p class="mt-2 text-gray-400">Gathers information and references for the team, from historical accuracy for a period piece to scientific principles for a sci-fi game.</p></div>
+                    <div class="role-card rounded-lg p-6"><h3 class="text-xl font-bold text-white">Cultural Expert</h3><p class="mt-2 text-gray-400">Advises the team on cultural representation to ensure that stories and characters are portrayed respectfully and authentically.</p></div>
+                    <div class="role-card rounded-lg p-6"><h3 class="text-xl font-bold text-white">Accessibility Specialist</h3><p class="mt-2 text-gray-400">Works to ensure the game can be played by people with diverse abilities, implementing features like colorblind modes and remappable controls.</p></div>
+                    <div class="role-card rounded-lg p-6"><h3 class="text-xl font-bold text-white">Marketing</h3><p class="mt-2 text-gray-400">Creates trailers, manages social media, and builds excitement to ensure the world knows about the game when it launches.</p></div>
+                </div>
+            </section>
+
+            <!-- The STEM Connection -->
+            <section>
+                <div class="bg-gray-800 rounded-lg p-8 mt-16">
+                    <h2 class="text-3xl font-bold text-center text-cyan-400 mb-8">How STEM Powers Games</h2>
+                    <div class="grid md:grid-cols-2 gap-8 text-center">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-2">Science</h3>
+                            <p class="text-gray-400">From realistic physics engines to accurate simulations of ecosystems or celestial bodies, science provides the rules that make game worlds believable and dynamic.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-2">Technology</h3>
+                            <p class="text-gray-400">This is the backbone of game development. It includes the game engines, programming languages, rendering pipelines, and AI algorithms that make modern games possible.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-2">Engineering</h3>
+                            <p class="text-gray-400">Game development is a massive engineering challenge. It involves building stable systems, optimizing performance for different hardware, and creating robust online networking for multiplayer games.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-2">Math</h3>
+                            <p class="mt-2 text-gray-400">Math is everywhere in games: from the 3D vector calculations that render graphics to the probability and statistics that balance game economies and create fair, challenging gameplay.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 border-t border-gray-700 mt-16">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-400 text-sm">
+            <p>&copy; 2025 <a href="https://uoes.rutgers.edu" target="_blank" class="hover:text-white hover:underline">Rutgers University Online Education Services</a></p>
+            <div class="mt-4">
+                 <a href="https://nj4h.rutgers.edu/join-stem-ambassadors/" target="_blank" class="hover:text-white hover:underline">Rutgers 4-H STEM Ambassadors</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+</html>
