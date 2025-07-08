@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Resources - STEM + Games</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .resource-card {
+            background-color: #1f2937; /* bg-gray-800 */
+            border: 1px solid #374151; /* border-gray-700 */
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .resource-card:hover {
+            transform: translateY(-5px);
+            border-color: #22d3ee; /* border-cyan-400 */
+        }
+        .resource-card-content {
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+    <!-- Header & Navigation -->
+    <header class="bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between md:justify-start md:gap-10">
+                <a href="index.html" class="text-2xl font-bold text-cyan-400 flex-shrink-0">
+                    STEM<span class="text-white">+</span>Games
+                </a>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-gray-300 hover:text-cyan-400 transition-colors">Home</a>
+                    <a href="showcase.html" class="text-gray-300 hover:text-cyan-400 transition-colors">Game Showcase</a>
+                    <a href="design.html" class="text-gray-300 hover:text-cyan-400 transition-colors">Game Design</a>
+                    <a href="resources.html" class="text-cyan-400 font-bold transition-colors">Resources</a>
+                    <a href="roles.html" class="text-gray-300 hover:text-cyan-400 transition-colors">Dev Roles</a>
+                    <a href="profiles.html" class="text-gray-300 hover:text-cyan-400 transition-colors">Profiles</a>
+                    <a href="initiatives.html" class="text-gray-300 hover:text-cyan-400 transition-colors">Initiatives</a>
+                    <a href="get-involved.html" class="text-gray-300 hover:text-cyan-400 transition-colors">Get Involved</a>
+                    <a href="quest.html" class="text-gray-300 hover:text-cyan-400 transition-colors">STEM Quest</a>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4">
+                <a href="index.html" class="block py-2 text-gray-300 hover:text-cyan-400">Home</a>
+                <a href="showcase.html" class="block py-2 text-gray-300 hover:text-cyan-400">Game Showcase</a>
+                <a href="design.html" class="block py-2 text-gray-300 hover:text-cyan-400">Intro to Game Design</a>
+                <a href="resources.html" class="block py-2 text-cyan-400 font-bold">Free Resources</a>
+                <a href="roles.html" class="block py-2 text-gray-300 hover:text-cyan-400">Game Dev Roles</a>
+                <a href="profiles.html" class="block py-2 text-gray-300 hover:text-cyan-400">Industry Profiles</a>
+                <a href="initiatives.html" class="block py-2 text-gray-300 hover:text-cyan-400">Initiatives for Change</a>
+                <a href="get-involved.html" class="block py-2 text-gray-300 hover:text-cyan-400">Get Involved</a>
+                <a href="quest.html" class="block py-2 text-gray-300 hover:text-cyan-400">STEM Quest</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-16">
+        <div class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-black tracking-tight text-cyan-400">Free Resources</h1>
+            <p class="mt-4 text-lg text-gray-400 max-w-3xl mx-auto">A curated list of free tools and assets to help you build your own amazing STEM games.</p>
+        </div>
+
+        <div class="space-y-16">
+
+            <!-- Game Development & Prototyping -->
+            <section>
+                <h2 class="text-3xl font-bold border-l-4 border-cyan-400 pl-4 mb-8">Game Development & Prototyping</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="resource-card rounded-lg p-6">
+                        <div class="resource-card-content">
+                            <a href="https://unity.com/" target="_blank" class="text-xl font-bold text-white hover:text-cyan-400 transition-colors">Unity</a>
+                            <p class="mt-2 text-gray-400">A powerful, industry-standard game engine for creating 2D and 3D games. The personal plan is free for students and hobbyists.</p>
+                        </div>
+                    </div>
+                    <div class="resource-card rounded-lg p-6">
+                        <div class="resource-card-content">
+                            <a href="https://twinery.org/" target="_blank" class="text-xl font-bold text-white hover:text-cyan-400 transition-colors">Twine</a>
+                            <p class="mt-2 text-gray-400">An open-source tool for creating interactive, non-linear stories. Perfect for beginners, as no coding is required to start.</p>
+                        </div>
+                    </div>
+                    <div class="resource-card rounded-lg p-6">
+                        <div class="resource-card-content">
+                            <a href="https://www.renpy.org/" target="_blank" class="text-xl font-bold text-white hover:text-cyan-400 transition-colors">Ren'Py</a>
+                            <p class="mt-2 text-gray-400">A visual novel engine that lets you create interactive stories with words, images, and sounds. Free for commercial and non-commercial use.</p>
+                        </div>
+                    </div>
+                    <div class="resource-card rounded-lg p-6">
+                        <div class="resource-card-content">
+                            <a href="https://scratch.mit.edu/" target="_blank" class="text-xl font-bold text-white hover:text-cyan-400 transition-colors">Scratch</a>
+                            <p class="mt-2 text-gray-400">A visual programming language from MIT where you can create your own interactive stories, games, and animations using block-based coding.</p>
+                        </div>
+                    </div>
+                    <div class="resource-card rounded-lg p-6">
+                        <div class="resource-card-content">
+                            <a href="https://education.minecraft.net/" target="_blank" class="text-xl font-bold text-white hover:text-cyan-400 transition-colors">Minecraft Education</a>
+                            <p class="mt-2 text-gray-400">A game-based learning platform that promotes creativity, collaboration, and problem-solving in an immersive digital environment.</p>
+                        </div>
+                    </div>
+                    <div class="resource-card rounded-lg p-6">
+                        <div class="resource-card-content">
+                            <a href="https://corp.roblox.com/education/" target="_blank" class="text-xl font-bold text-white hover:text-cyan-400 transition-colors">Roblox Education</a>
+                            <p class="mt-2 text-gray-400">Leverage the popular Roblox platform to create educational experiences, teaching everything from coding and physics to digital citizenship.</p>
+                        </div>
+                    </div>
+                    <div class="resource-card rounded-lg p-6">
+                        <div class="resource-card-content">
+                            <a href="https://www.dextrous.com.au/" target="_blank" class="text-xl font-bold text-white hover:text-cyan-400 transition-colors">Dextrous</a>
+                            <p class="mt-2 text-gray-400">A prototyping tool for designing and playtesting physical card games and board games directly in your browser.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- AR/VR Development -->
+            <section>
+                <h2 class="text-3xl font-bold border-l-4 border-cyan-400 pl-4 mb-8">AR/VR Development</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="resource-card rounded-lg p-6">
+                        <a href="https://www.adobe.com/products/aero.html" target="_blank" class="text-xl font-bold text-white hover:text-cyan-400 transition-colors">Adobe Aero</a>
+                        <p class="mt-2 text-gray-400">Design and share immersive augmented reality experiences without any coding. Great for bringing 3D models into the real world.</p>
+                    </div>
+                    <div class="resource-card rounded-lg p-6">
+                        <a href="https://www.8thwall.com/" target="_blank" class="text-xl font-bold text-white hover:text-cyan-400 transition-colors">8th Wall</a>
+                        <p class="mt-2 text-gray-400">A powerful platform for creating Web-based Augmented Reality (WebAR) that works in a browser, no app required.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3D Modeling & Animation -->
+            <section>
+                <h2 class="text-3xl font-bold border-l-4 border-cyan-400 pl-4 mb-8">3D Modeling & Animation</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="resource-card rounded-lg p-6">
+                        <a href="https://www.blender.org/" target="_blank" class="text-xl font-bold text-white hover:text-cyan-400 transition-colors">Blender</a>
+                        <p class="mt-2 text-gray-400">A completely free and open-source 3D creation suite. It supports the entirety of the 3D pipeline—modeling, rigging, animation, simulation, rendering, and more.</p>
+                    </div>
+                    <div class="resource-card rounded-lg p-6">
+                        <a href="https://poly.cam/" target="_blank" class="text-xl font-bold text-white hover:text-cyan-400 transition-colors">Polycam</a>
+                        <p class="mt-2 text-gray-400">A 3D capture app that lets you create high-quality 3D models from photos using your phone. Great for photogrammetry.</p>
+                    </div>
+                    <div class="resource-card rounded-lg p-6">
+                        <a href="https://www.mixamo.com/" target="_blank" class="text-xl font-bold text-white hover:text-cyan-400 transition-colors">Adobe Mixamo</a>
+                        <p class="mt-2 text-gray-400">A free online service that lets you upload a 3D character, automatically rig it, and apply thousands of motion-captured animations.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Art & Design Tools -->
+            <section>
+                <h2 class="text-3xl font-bold border-l-4 border-cyan-400 pl-4 mb-8">Art & Design Tools</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="resource-card rounded-lg p-6">
+                        <a href="https://krita.org/" target="_blank" class="text-xl font-bold text-white hover:text-cyan-400 transition-colors">Krita</a>
+                        <p class="mt-2 text-gray-400">A professional, free, and open-source painting program. Excellent for creating 2D game art, textures, and concept art.</p>
+                    </div>
+                    <div class="resource-card rounded-lg p-6">
+                        <a href="https://www.gimp.org/" target="_blank" class="text-xl font-bold text-white hover:text-cyan-400 transition-colors">GIMP</a>
+                        <p class="mt-2 text-gray-400">A free and open-source raster graphics editor used for image manipulation, editing, and creating UI elements or sprites.</p>
+                    </div>
+                    <div class="resource-card rounded-lg p-6">
+                        <a href="https://www.canva.com/" target="_blank" class="text-xl font-bold text-white hover:text-cyan-400 transition-colors">Canva</a>
+                        <p class="mt-2 text-gray-400">An easy-to-use online graphic design platform to create UI elements, promotional materials, and presentations for your game.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Free Asset Libraries -->
+            <section>
+                <h2 class="text-3xl font-bold border-l-4 border-cyan-400 pl-4 mb-8">Free Asset Libraries</h2>
+                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="resource-card rounded-lg p-6">
+                        <a href="https://opengameart.org/" target="_blank" class="text-xl font-bold text-white hover:text-cyan-400 transition-colors">OpenGameArt</a>
+                        <p class="mt-2 text-gray-400">A massive library of free, public domain art, sound, and music assets created by the community for game developers.</p>
+                    </div>
+                    <div class="resource-card rounded-lg p-6">
+                        <a href="https://kenney.nl/assets" target="_blank" class="text-xl font-bold text-white hover:text-cyan-400 transition-colors">Kenney.nl</a>
+                        <p class="mt-2 text-gray-400">Offers thousands of high-quality, game-ready assets (2D, 3D, UI, audio) under a very permissive public domain license (CC0).</p>
+                    </div>
+                    <div class="resource-card rounded-lg p-6">
+                        <a href="https://itch.io/game-assets/free" target="_blank" class="text-xl font-bold text-white hover:text-cyan-400 transition-colors">Itch.io</a>
+                        <p class="mt-2 text-gray-400">A marketplace for indie games that also has a huge section for free game assets, including sprites, tilemaps, and more.</p>
+                    </div>
+                    <div class="resource-card rounded-lg p-6">
+                        <a href="https://www.audacityteam.org/" target="_blank" class="text-xl font-bold text-white hover:text-cyan-400 transition-colors">Audacity</a>
+                        <p class="mt-2 text-gray-400">A free, open-source, cross-platform audio software for multi-track recording and editing. The go-to tool for basic audio work.</p>
+                    </div>
+                     <div class="resource-card rounded-lg p-6">
+                        <a href="https://mobygratis.com/" target="_blank" class="text-xl font-bold text-white hover:text-cyan-400 transition-colors">Moby Gratis</a>
+                        <p class="mt-2 text-gray-400">A resource of free music for independent, non-profit, and student projects, provided by the musician Moby.</p>
+                    </div>
+                    <div class="resource-card rounded-lg p-6">
+                        <a href="https://freesound.org/" target="_blank" class="text-xl font-bold text-white hover:text-cyan-400 transition-colors">Freesound</a>
+                        <p class="mt-2 text-gray-400">A collaborative database of Creative Commons licensed sounds. A great place to find specific sound effects for your game.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Project Management & Collaboration -->
+            <section>
+                <h2 class="text-3xl font-bold border-l-4 border-cyan-400 pl-4 mb-8">Project Management & Collaboration</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="resource-card rounded-lg p-6">
+                        <a href="https://www.figma.com/" target="_blank" class="text-xl font-bold text-white hover:text-cyan-400 transition-colors">Figma</a>
+                        <p class="mt-2 text-gray-400">A collaborative interface design tool for creating user interfaces, interactive prototypes, and design systems. Widely used for UI/UX design in games.</p>
+                    </div>
+                    <div class="resource-card rounded-lg p-6">
+                        <a href="https://docs.google.com/" target="_blank" class="text-xl font-bold text-white hover:text-cyan-400 transition-colors">Google Docs</a>
+                        <p class="mt-2 text-gray-400">Essential for writing game design documents (GDDs), scripts, and collaborating on text-based plans in real-time.</p>
+                    </div>
+                    <div class="resource-card rounded-lg p-6">
+                        <a href="https://miro.com/" target="_blank" class="text-xl font-bold text-white hover:text-cyan-400 transition-colors">Miro</a>
+                        <p class="mt-2 text-gray-400">An online collaborative whiteboard perfect for brainstorming ideas, creating flowcharts, and visualizing game mechanics with your team.</p>
+                    </div>
+                    <div class="resource-card rounded-lg p-6">
+                        <a href="https://www.notion.so/" target="_blank" class="text-xl font-bold text-white hover:text-cyan-400 transition-colors">Notion</a>
+                        <p class="mt-2 text-gray-400">A powerful all-in-one workspace for notes, tasks, and project management. Great for keeping your game project organized.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Industry Knowledge -->
+            <section>
+                <h2 class="text-3xl font-bold border-l-4 border-cyan-400 pl-4 mb-8">Industry Knowledge</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="resource-card rounded-lg p-6">
+                        <a href="https://gdconf.com/gdc-vault" target="_blank" class="text-xl font-bold text-white hover:text-cyan-400 transition-colors">GDC Vault</a>
+                        <p class="mt-2 text-gray-400">The official content library of the Game Developers Conference. Many talks from past events are available for free, offering incredible insights from industry professionals.</p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 border-t border-gray-700 mt-16">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-400 text-sm">
+            <p>&copy; 2025 <a href="https://uoes.rutgers.edu" target="_blank" class="hover:text-white hover:underline">Rutgers University Online Education Services</a></p>
+            <div class="mt-4">
+                 <a href="https://nj4h.rutgers.edu/join-stem-ambassadors/" target="_blank" class="hover:text-white hover:underline">Rutgers 4-H STEM Ambassadors</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+</html>
