@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STEM Quest - STEM + Games</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Shimmer animation for highlights */
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) rotate(20deg); }
+            100% { transform: translateX(100%) rotate(20deg); }
+        }
+        .shimmer::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+        .path-chip.selected {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 0 15px rgba(34, 211, 238, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+    <!-- Header & Navigation -->
+    <header class="bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between md:justify-start md:gap-10">
+                <a href="index.html" class="text-2xl font-bold text-cyan-400 flex-shrink-0">
+                    STEM<span class="text-white">+</span>Games
+                </a>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-gray-300 hover:text-cyan-400 transition-colors">Home</a>
+                    <a href="showcase.html" class="text-gray-300 hover:text-cyan-400 transition-colors">Game Showcase</a>
+                    <a href="design.html" class="text-gray-300 hover:text-cyan-400 transition-colors">Game Design</a>
+                    <a href="resources.html" class="text-gray-300 hover:text-cyan-400 transition-colors">Resources</a>
+                    <a href="roles.html" class="text-gray-300 hover:text-cyan-400 transition-colors">Dev Roles</a>
+                    <a href="profiles.html" class="text-gray-300 hover:text-cyan-400 transition-colors">Profiles</a>
+                    <a href="initiatives.html" class="text-gray-300 hover:text-cyan-400 transition-colors">Initiatives</a>
+                    <a href="get-involved.html" class="text-gray-300 hover:text-cyan-400 transition-colors">Get Involved</a>
+                    <a href="quest.html" class="text-cyan-400 font-bold transition-colors">STEM Quest</a>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4">
+                <a href="index.html" class="block py-2 text-gray-300 hover:text-cyan-400">Home</a>
+                <a href="showcase.html" class="block py-2 text-gray-300 hover:text-cyan-400">Game Showcase</a>
+                <a href="design.html" class="block py-2 text-gray-300 hover:text-cyan-400">Intro to Game Design</a>
+                <a href="resources.html" class="block py-2 text-gray-300 hover:text-cyan-400">Free Resources</a>
+                <a href="roles.html" class="block py-2 text-gray-300 hover:text-cyan-400">Game Dev Roles</a>
+                <a href="profiles.html" class="block py-2 text-gray-300 hover:text-cyan-400">Industry Profiles</a>
+                <a href="initiatives.html" class="block py-2 text-gray-300 hover:text-cyan-400">Initiatives for Change</a>
+                <a href="get-involved.html" class="block py-2 text-gray-300 hover:text-cyan-400">Get Involved</a>
+                <a href="quest.html" class="block py-2 text-cyan-400 font-bold">STEM Quest</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Game Board -->
+    <main class="container mx-auto px-4 py-8">
+        <div class="bg-gray-800/50 rounded-xl shadow-2xl shadow-cyan-500/10">
+            <div class="bg-gray-800 text-center p-5 rounded-t-xl border-b border-gray-700">
+                <h1 class="text-3xl font-black text-white">🎮 STEM QUEST 🚀</h1>
+                <p class="text-cyan-400">Discover Your STEM Superpowers!</p>
+            </div>
+
+            <div class="flex flex-col lg:flex-row p-4 gap-4">
+                <!-- Left Panel -->
+                <div id="quest-results-area" class="w-full lg:w-2/5 flex flex-col gap-4 bg-gray-900 p-4 rounded-lg">
+                    <div class="bg-gray-800 border border-cyan-500/30 rounded-xl p-4 text-center">
+                        <h2 class="text-xl font-bold text-cyan-400 mb-2">🌟 START HERE! 🌟</h2>
+                        <p class="text-gray-300 text-sm">First, create your character below. Then, tackle the challenges on the right to reveal your unique STEM talents!</p>
+                    </div>
+
+                    <div class="bg-gray-700/50 text-white p-4 rounded-xl text-sm">
+                        <h3 class="font-bold text-white mb-2">🎯 How to Play:</h3>
+                        <ol class="list-decimal list-inside space-y-1">
+                            <li>Create your STEM character.</li>
+                            <li>For each scenario, click a path chip to choose your approach.</li>
+                            <li>Describe HOW you'd solve each challenge.</li>
+                            <li>Watch your stats grow in real-time!</li>
+                            <li>Create your own challenge to solve.</li>
+                            <li>Discover & export your unique STEM profile!</li>
+                        </ol>
+                    </div>
+
+                    <div class="bg-gray-800 border border-gray-700 rounded-xl p-4">
+                        <h3 class="text-lg font-bold text-center text-white mb-3">🎭 CREATE YOUR STEM CHARACTER</h3>
+                        <p class="text-center text-xs text-gray-400 mb-4">Imagine yourself as a STEM hero! What makes you special and unique?</p>
+                        <form class="space-y-3">
+                            <div>
+                                <label class="text-xs font-bold text-cyan-400">My STEM Hero Name:</label>
+                                <input type="text" placeholder="e.g., Dr. Data, Code Crusher..." class="w-full bg-gray-900 border border-gray-600 rounded-md p-2 text-sm text-white focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none">
+                            </div>
+                            <div>
+                                <label class="text-xs font-bold text-cyan-400">My Superpower:</label>
+                                <input type="text" placeholder="e.g., Finding patterns, Making complex things simple..." class="w-full bg-gray-900 border border-gray-600 rounded-md p-2 text-sm text-white focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none">
+                            </div>
+                            <div>
+                                <label class="text-xs font-bold text-cyan-400">My Mission:</label>
+                                <textarea placeholder="e.g., Protect the environment, Cure diseases..." class="w-full bg-gray-900 border border-gray-600 rounded-md p-2 text-sm text-white focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none h-20 resize-none"></textarea>
+                            </div>
+                             <div>
+                                <label class="text-xs font-bold text-cyan-400">What Makes Me Unique:</label>
+                                <textarea placeholder="e.g., I speak three languages, I notice details others miss..." class="w-full bg-gray-900 border border-gray-600 rounded-md p-2 text-sm text-white focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none h-20 resize-none"></textarea>
+                            </div>
+                        </form>
+                    </div>
+
+                     <div class="bg-gray-800 border border-gray-700 rounded-xl p-4">
+                        <h4 class="text-lg font-bold text-center text-white mb-2">📊 MY STEM STATS</h4>
+                        <p class="text-center text-xs text-gray-400 mb-4">Track your tokens as you make choices!</p>
+                        <div class="space-y-3">
+                            <!-- Computing -->
+                            <div class="progress-bar">
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-sm font-bold text-white">💻 Computing & Data</span>
+                                    <span class="count-display text-xs text-gray-400">0/5</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2.5"><div class="progress-fill computing-fill bg-blue-500 h-2.5 rounded-full transition-all duration-500" style="width: 0%"></div></div>
+                            </div>
+                            <!-- Science -->
+                            <div class="progress-bar">
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-sm font-bold text-white">🔬 Science & Discovery</span>
+                                    <span class="count-display text-xs text-gray-400">0/5</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2.5"><div class="progress-fill science-fill bg-pink-500 h-2.5 rounded-full transition-all duration-500" style="width: 0%"></div></div>
+                            </div>
+                            <!-- Engineering -->
+                            <div class="progress-bar">
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-sm font-bold text-white">⚙️ Engineering & Tech</span>
+                                    <span class="count-display text-xs text-gray-400">0/5</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2.5"><div class="progress-fill engineering-fill bg-teal-500 h-2.5 rounded-full transition-all duration-500" style="width: 0%"></div></div>
+                            </div>
+                        </div>
+                        <div class="mt-4 text-center bg-gray-900/50 p-3 rounded-md">
+                            <p class="text-sm text-gray-300"><strong>Your STEM Profile:</strong> <span id="stem-profile" class="font-bold text-cyan-400">Make a choice to see!</span></p>
+                        </div>
+                        <button id="export-button" class="mt-4 w-full flex items-center justify-center gap-2 bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-3 px-4 rounded-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                              <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V
