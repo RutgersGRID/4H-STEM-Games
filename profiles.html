@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industry Profiles - STEM + Games</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .profile-card {
+            background-color: #1f2937; /* bg-gray-800 */
+            border: 1px solid #374151; /* border-gray-700 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .profile-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(34, 211, 238, 0.1);
+        }
+        .profile-quote {
+            border-left: 4px solid #22d3ee; /* border-cyan-400 */
+            background-color: #111827; /* bg-gray-900 */
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+    <!-- Header & Navigation -->
+    <header class="bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between md:justify-start md:gap-10">
+                <a href="index.html" class="text-2xl font-bold text-cyan-400 flex-shrink-0">
+                    STEM<span class="text-white">+</span>Games
+                </a>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-gray-300 hover:text-cyan-400 transition-colors">Home</a>
+                    <a href="showcase.html" class="text-gray-300 hover:text-cyan-400 transition-colors">Game Showcase</a>
+                    <a href="design.html" class="text-gray-300 hover:text-cyan-400 transition-colors">Game Design</a>
+                    <a href="resources.html" class="text-gray-300 hover:text-cyan-400 transition-colors">Resources</a>
+                    <a href="roles.html" class="text-gray-300 hover:text-cyan-400 transition-colors">Dev Roles</a>
+                    <a href="profiles.html" class="text-cyan-400 font-bold transition-colors">Profiles</a>
+                    <a href="initiatives.html" class="text-gray-300 hover:text-cyan-400 transition-colors">Initiatives</a>
+                    <a href="get-involved.html" class="text-gray-300 hover:text-cyan-400 transition-colors">Get Involved</a>
+                    <a href="quest.html" class="text-gray-300 hover:text-cyan-400 transition-colors">STEM Quest</a>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4">
+                <a href="index.html" class="block py-2 text-gray-300 hover:text-cyan-400">Home</a>
+                <a href="showcase.html" class="block py-2 text-gray-300 hover:text-cyan-400">Game Showcase</a>
+                <a href="design.html" class="block py-2 text-gray-300 hover:text-cyan-400">Intro to Game Design</a>
+                <a href="resources.html" class="block py-2 text-gray-300 hover:text-cyan-400">Free Resources</a>
+                <a href="roles.html" class="block py-2 text-gray-300 hover:text-cyan-400">Game Dev Roles</a>
+                <a href="profiles.html" class="block py-2 text-cyan-400 font-bold">Industry Profiles</a>
+                <a href="initiatives.html" class="block py-2 text-gray-300 hover:text-cyan-400">Initiatives for Change</a>
+                <a href="get-involved.html" class="block py-2 text-gray-300 hover:text-cyan-400">Get Involved</a>
+                <a href="quest.html" class="block py-2 text-gray-300 hover:text-cyan-400">STEM Quest</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-16">
+        <div class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-black tracking-tight text-cyan-400">Industry Profiles</h1>
+            <p class="mt-4 text-lg text-gray-400 max-w-3xl mx-auto">
+                People from different backgrounds and with different approaches are what make games so great. Explore the profiles below to see how unique perspectives and skills—from science to art to journalism—are powerful assets in the world of game development.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            
+            <!-- Leigh Alexander -->
+            <div class="profile-card rounded-xl overflow-hidden">
+                <img src="https://placehold.co/600x400/d946ef/ffffff?text=Leigh+Alexander" alt="Portrait of Leigh Alexander" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h2 class="text-2xl font-bold text-white">Leigh Alexander</h2>
+                    <p class="text-md text-cyan-400 font-semibold">Narrative Designer & Author</p>
+                    <p class="mt-4 text-gray-400">A prominent journalist and critic turned narrative designer, Leigh Alexander brings a deep understanding of culture, technology, and storytelling to games. Her work often explores the human condition in digital spaces. She is known for her writing on the award-winning games <span class="font-semibold text-gray-300">Reigns: Her Majesty</span> and <span class="font-semibold text-gray-300">Reigns: Game of Thrones</span>.</p>
+                    <blockquote class="profile-quote p-4 mt-4 text-gray-300 italic">
+                        "My work is still concerned with the complexities of existing in digital spaces."
+                    </blockquote>
+                </div>
+            </div>
+
+            <!-- Tracy Fullerton -->
+            <div class="profile-card rounded-xl overflow-hidden">
+                <img src="https://placehold.co/600x400/a855f7/ffffff?text=Tracy+Fullerton" alt="Portrait of Tracy Fullerton" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h2 class="text-2xl font-bold text-white">Tracy Fullerton</h2>
+                    <p class="text-md text-cyan-400 font-semibold">Game Designer, Professor & Director</p>
+                    <p class="mt-4 text-gray-400">As the director of the USC Games program, Tracy Fullerton is a foundational figure in game design education. Her work focuses on creating "serious games" that explore complex topics. Her celebrated game, <span class="font-semibold text-gray-300">Walden, a game</span>, is an interactive simulation of Henry David Thoreau's experiment in simple living, showing that games can be a medium for philosophy and reflection.</p>
+                     <blockquote class="profile-quote p-4 mt-4 text-gray-300 italic">
+                        "Find inspiration in ideas and activities that have meaning to them and then see where that leads rather than rely on standard genres."
+                    </blockquote>
+                </div>
+            </div>
+
+            <!-- Zoë Quinn -->
+            <div class="profile-card rounded-xl overflow-hidden">
+                <img src="https://placehold.co/600x400/8b5cf6/ffffff?text=Zoë+Quinn" alt="Portrait of Zoë Quinn" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h2 class="text-2xl font-bold text-white">Zoë Quinn</h2>
+                    <p class="text-md text-cyan-400 font-semibold">Game Developer & Writer</p>
+                    <p class="mt-4 text-gray-400">Zoë Quinn is a developer known for creating deeply personal and unconventional games. Their most famous work, <span class="font-semibold text-gray-300">Depression Quest</span>, is an interactive fiction game that powerfully communicates the experience of living with depression, demonstrating how games can foster empathy and understanding around difficult mental health topics.</p>
+                </div>
+            </div>
+
+            <!-- Evan Narcisse -->
+            <div class="profile-card rounded-xl overflow-hidden">
+                 <img src="https://placehold.co/600x400/6d28d9/ffffff?text=Evan+Narcisse" alt="Portrait of Evan Narcisse" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h2 class="text-2xl font-bold text-white">Evan Narcisse</h2>
+                    <p class="text-md text-cyan-400 font-semibold">Narrative Designer & Comics Writer</p>
+                    <p class="mt-4 text-gray-400">With a background as a journalist and critic focusing on pop culture and race, Evan Narcisse now writes for video games and comics. He has worked on major titles like <span class="font-semibold text-gray-300">Marvel's Spider-Man: Miles Morales</span> and <span class="font-semibold text-gray-300">Marvel's Avengers</span>, bringing authentic and nuanced perspectives to beloved characters and worlds.</p>
+                </div>
+            </div>
+
+            <!-- Kid Koala -->
+            <div class="profile-card rounded-xl overflow-hidden">
+                <img src="https://placehold.co/600x400/1d4ed8/ffffff?text=Kid+Koala" alt="Portrait of Kid Koala" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h2 class="text-2xl font-bold text-white">Kid Koala (Eric San)</h2>
+                    <p class="text-md text-cyan-400 font-semibold">DJ, Composer & Visual Artist</p>
+                    <p class="mt-4 text-gray-400">A world-renowned scratch DJ and musician, Kid Koala brings a completely unique background to game development. He composed the dynamic, break-beat soundtrack for the game <span class="font-semibold text-gray-300">Floor Kids</span>, a hand-drawn game about breakdancing. His work shows that a deep passion for music and art can be the driving force behind a game's identity.</p>
+                </div>
+            </div>
+
+            <!-- Dr. Mandë Holford -->
+            <div class="profile-card rounded-xl overflow-hidden">
+                <img src="https://placehold.co/600x400/0284c7/ffffff?text=Dr.+Mandë+Holford" alt="Portrait of Dr. Mandë Holford" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h2 class="text-2xl font-bold text-white">Dr. Mandë Holford</h2>
+                    <p class="text-md text-cyan-400 font-semibold">Professor of Chemistry & Science Communicator</p>
+                    <p class="mt-4 text-gray-400">Dr. Holford is a chemist who studies venom from marine snails to create new medicines. Seeing an opportunity to make science more engaging, she co-founded <span class="font-semibold text-gray-300">Killer Snails, LLC</span>, an award-winning company that creates games (like the one in our showcase!) that directly use scientific concepts to create fun, educational experiences. Her work is a perfect example of the STEM-to-games pipeline.</p>
+                </div>
+            </div>
+            
+            <!-- Dr. Michael Cosimini -->
+            <div class="profile-card rounded-xl overflow-hidden">
+                <img src="https://placehold.co/600x400/0e7490/ffffff?text=Dr.+Michael+Cosimini" alt="Portrait of Dr. Michael Cosimini" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h2 class="text-2xl font-bold text-white">Dr. Michael Cosimini</h2>
+                    <p class="text-md text-cyan-400 font-semibold">Pediatrician & Game Designer</p>
+                    <p class="mt-4 text-gray-400">As a pediatrician, Dr. Cosimini saw a need to better teach complex medical guidelines. He designed <span class="font-semibold text-gray-300">Empiric</span>, a card game that teaches doctors and medical students how to prescribe antibiotics correctly. This shows that a deep understanding of a specific STEM field can be the perfect inspiration for a game that solves a real-world problem.</p>
+                </div>
+            </div>
+            
+            <!-- Jenny Jiao Hsia -->
+            <div class="profile-card rounded-xl overflow-hidden">
+                <img src="https://placehold.co/600x400/155e75/ffffff?text=Jenny+Jiao+Hsia" alt="Portrait of Jenny Jiao Hsia" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h2 class="text-2xl font-bold text-white">Jenny Jiao Hsia</h2>
+                    <p class="text-md text-cyan-400 font-semibold">Game Developer & Artist</p>
+                    <p class="mt-4 text-gray-400">Jenny Jiao Hsia is an independent game developer whose work is known for its playful, tactile, and often humorous style. Her games, like <span class="font-semibold text-gray-300">Beglitched</span> and <span class="font-semibold text-gray-300">Consume Me</span>, explore themes of technology and daily life through unique and charming aesthetics. She often combines her digital work with physical crafts, like sewing plush dolls, showing that inspiration can come from anywhere.</p>
+                </div>
+            </div>
+            
+            <!-- Mistoria Brown -->
+            <div class="profile-card rounded-xl overflow-hidden">
+                <img src="https://placehold.co/600x400/be185d/ffffff?text=Mistoria+Brown" alt="Portrait of Mistoria Brown" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h2 class="text-2xl font-bold text-white">Mistoria Brown</h2>
+                    <p class="text-md text-cyan-400 font-semibold">Educational Technologist & Instructional Game Designer</p>
+                    <p class="mt-4 text-gray-400">As a PhD student and educator, Mistoria Brown focuses on promoting equity in STEM and creating culturally relevant learning experiences. She designs instructional games and interactive media that bring history and heritage to life, using technology to amplify student voices and create new pathways for representation in education.</p>
+                    <blockquote class="profile-quote p-4 mt-4 text-gray-300 italic">
+                        "...the past should serve as a connection point rather than merely being memorized."
+                    </blockquote>
+                </div>
+            </div>
+
+            <!-- Derek Yu -->
+            <div class="profile-card rounded-xl overflow-hidden">
+                <img src="https://placehold.co/600x400/4d7c0f/ffffff?text=Derek+Yu" alt="Portrait of Derek Yu" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h2 class="text-2xl font-bold text-white">Derek Yu</h2>
+                    <p class="text-md text-cyan-400 font-semibold">Independent Game Developer</p>
+                    <p class="mt-4 text-gray-400">A legendary figure in the indie game scene, Derek Yu is the creator of the critically acclaimed roguelike platformer <span class="font-semibold text-gray-300">Spelunky</span> and its sequel. His work is a testament to the power of focused, systems-driven design and proves that a single developer can create a game that influences an entire genre and inspires a generation of creators.</p>
+                    <blockquote class="profile-quote p-4 mt-4 text-gray-300 italic">
+                        "For me personally as an artist, it's about thinking of [game development] as a continuous exploration."
+                    </blockquote>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 border-t border-gray-700 mt-16">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-400 text-sm">
+            <p>&copy; 2025 <a href="https://uoes.rutgers.edu" target="_blank" class="hover:text-white hover:underline">Rutgers University Online Education Services</a></p>
+            <div class="mt-4">
+                 <a href="https://nj4h.rutgers.edu/join-stem-ambassadors/" target="_blank" class="hover:text-white hover:underline">Rutgers 4-H STEM Ambassadors</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+</html>
