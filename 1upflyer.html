@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STEM + Games Full-Page Flyer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        @media screen {
+            body {
+                background-color: #e5e7eb; /* bg-gray-200 */
+            }
+            .page {
+                width: 8.5in;
+                height: 11in;
+                margin: 2rem auto;
+                box-shadow: 0 0 10px rgba(0,0,0,0.5);
+                background-color: white;
+            }
+        }
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            .page {
+                width: 100%;
+                height: 100vh;
+                margin: 0;
+                padding: 0;
+                box-shadow: none;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+        .page-content {
+            font-family: 'Inter', sans-serif;
+            padding: 0.5in;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="no-print p-4 bg-gray-800 text-white text-center">
+        <h1 class="text-xl font-bold">Flyer Preview</h1>
+        <p>This is a preview of your full-page flyer. Use your browser's print function (Ctrl/Cmd + P) to print.</p>
+    </div>
+
+    <div class="page">
+        <div class="page-content">
+            <!-- Header -->
+            <header class="text-center">
+                <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/banner.png" alt="STEM + Games Banner" class="w-full rounded-lg object-cover" style="height: 2in;">
+                <h1 class="text-5xl font-black text-cyan-600 mt-6">Level Up Your World</h1>
+                <p class="text-lg text-gray-700 mt-2">
+                    An online resource for 4-H STEM Ambassadors, presented by Rutgers University Online Education Services.
+                </p>
+            </header>
+
+            <!-- Main Content -->
+            <main class="mt-8 flex-grow">
+                <p class="text-center text-gray-800">
+                    Ready to turn your passion for science and gaming into real-world impact? This website is your headquarters for exploring the powerful connection between STEM and game development.
+                </p>
+
+                <div class="mt-6 border-t border-gray-300 pt-6 grid grid-cols-2 gap-x-8 gap-y-6">
+                    <div>
+                        <h3 class="text-lg font-bold text-cyan-700">🎮 STEM Quest</h3>
+                        <p class="text-sm text-gray-600 mt-1">Discover your unique STEM strengths and problem-solving style through a fun, interactive game designed just for you.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-cyan-700">🚀 Game Showcase</h3>
+                        <p class="text-sm text-gray-600 mt-1">Explore a curated list of incredible games that are making a difference in science, health, conservation, and more.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-cyan-700">🎨 Intro to Game Design</h3>
+                        <p class="text-sm text-gray-600 mt-1">Learn the core principles of game design and use our hands-on activities to start creating your own game concept today.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-cyan-700">🌟 Industry Profiles</h3>
+                        <p class="text-sm text-gray-600 mt-1">Get inspired by professionals from diverse backgrounds—scientists, artists, and writers—who are shaping the future of games.</p>
+                    </div>
+                     <div>
+                        <h3 class="text-lg font-bold text-cyan-700">🛠️ Resources & Roles</h3>
+                        <p class="text-sm text-gray-600 mt-1">Find free tools, art, and sound for your projects, and learn about the wide variety of career paths in the games industry.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-cyan-700">🤝 Get Involved</h3>
+                        <p class="text-sm text-gray-600 mt-1">Discover programs and organizations that empower students to use technology and game design for social good.</p>
+                    </div>
+                </div>
+            </main>
+
+            <!-- Footer / QR Code Section -->
+            <footer class="mt-8 pt-6 border-t border-gray-300 flex items-center justify-center gap-8">
+                <div class="text-center">
+                    <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/qr.jpg" alt="QR Code" class="w-36 h-36 mx-auto">
+                    <p class="mt-2 font-bold text-xl text-gray-800">Scan to Explore!</p>
+                </div>
+                <div class="text-left">
+                    <p class="text-2xl font-bold text-cyan-700">go.rutgers.edu/4hstemgames</p>
+                    <p class="text-sm text-gray-600 mt-4">
+                         Presented by<br>
+                         <span class="font-semibold">Rutgers University Online Education Services</span><br>
+                         (uoes.rutgers.edu)
+                    </p>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+</body>
+</html>
