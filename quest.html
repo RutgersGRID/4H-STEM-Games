@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STEM Quest - STEM + Games</title>
+    <title>STEM Quest: The Game</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,10 +13,52 @@
         body {
             font-family: 'Inter', sans-serif;
         }
+        .step { display: none; }
+        .step.active { display: block; }
         .path-chip.selected {
             transform: translateY(-2px) scale(1.05);
             box-shadow: 0 0 15px rgba(34, 211, 238, 0.5);
             border-color: #22d3ee;
+        }
+        .nav-button { transition: all 0.3s ease; }
+        .nav-button:disabled { opacity: 0.5; cursor: not-allowed; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .step.active { animation: fadeIn 0.5s ease-in-out; }
+
+        /* Modal Styles */
+        #results-modal { transition: opacity 0.3s ease-in-out; }
+        #results-modal > div { transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; }
+        #results-modal.visible { opacity: 1; pointer-events: auto; }
+        #results-modal.visible > div { transform: scale(1); opacity: 1; }
+
+        /* Progress Map Styles */
+        .progress-icon {
+            transition: all 0.4s ease-in-out;
+            background-color: #374151; /* gray-700 */
+            color: #6b7280; /* gray-500 */
+            border-color: #4b5563; /* gray-600 */
+        }
+        .progress-icon.active {
+            background-color: #164e63; /* cyan-800 */
+            color: #67e8f9; /* cyan-300 */
+            border-color: #22d3ee; /* cyan-400 */
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(34, 211, 238, 0.4);
+        }
+        .progress-icon.completed {
+            background-color: #0891b2; /* cyan-600 */
+            color: #ffffff; /* white */
+            border-color: #06b6d4; /* cyan-500 */
+        }
+        .progress-line {
+            transition: background-color 0.4s ease-in-out;
+            background-color: #4b5563; /* gray-600 */
+        }
+        .progress-line.completed {
+            background-color: #0891b2; /* cyan-600 */
         }
     </style>
 </head>
@@ -61,182 +103,68 @@
         </nav>
     </header>
 
-    <!-- Main Game Board -->
-    <main class="container mx-auto px-4 py-8">
+    <main class="w-full max-w-4xl mx-auto my-8">
         <div class="bg-gray-800/50 rounded-xl shadow-2xl shadow-cyan-500/10">
             <div class="bg-gray-800 text-center p-5 rounded-t-xl border-b border-gray-700">
                 <h1 class="text-3xl font-black text-white">🎮 STEM QUEST 🚀</h1>
                 <p class="text-cyan-400">Discover Your STEM Superpowers!</p>
             </div>
 
-            <div class="flex flex-col lg:flex-row p-4 gap-4">
-                <!-- Left Panel -->
-                <div id="quest-results-area" class="w-full lg:w-2/5 flex flex-col gap-4 bg-gray-900 p-4 rounded-lg">
-                    <div class="bg-gray-800 border border-cyan-500/30 rounded-xl p-4 text-center">
-                        <h2 class="text-xl font-bold text-cyan-400 mb-2">🌟 START HERE! 🌟</h2>
-                        <p class="text-gray-300 text-sm">First, create your character below. Then, tackle the challenges on the right to reveal your unique STEM talents!</p>
-                    </div>
-
-                    <div class="bg-gray-700/50 text-white p-4 rounded-xl text-sm">
-                        <h3 class="font-bold text-white mb-2">🎯 How to Play:</h3>
-                        <ol class="list-decimal list-inside space-y-1">
-                            <li>Create your STEM character.</li>
-                            <li>For each scenario, click a path chip to choose your approach.</li>
-                            <li>Describe HOW you'd solve each challenge.</li>
-                            <li>Watch your stats grow in real-time!</li>
-                            <li>Create your own challenge to solve.</li>
-                            <li>Discover & export your unique STEM profile!</li>
-                        </ol>
-                    </div>
-
-                    <div class="bg-gray-800 border border-gray-700 rounded-xl p-4">
-                        <h3 class="text-lg font-bold text-center text-white mb-3">🎭 CREATE YOUR STEM CHARACTER</h3>
-                        <p class="text-center text-xs text-gray-400 mb-4">Imagine yourself as a STEM hero! What makes you special and unique?</p>
-                        <form class="space-y-3">
-                            <div>
-                                <label class="text-xs font-bold text-cyan-400">My STEM Hero Name:</label>
-                                <input type="text" placeholder="e.g., Dr. Data, Code Crusher..." class="w-full bg-gray-900 border border-gray-600 rounded-md p-2 text-sm text-white focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none">
-                            </div>
-                            <div>
-                                <label class="text-xs font-bold text-cyan-400">My Superpower:</label>
-                                <input type="text" placeholder="e.g., Finding patterns, Making complex things simple..." class="w-full bg-gray-900 border border-gray-600 rounded-md p-2 text-sm text-white focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none">
-                            </div>
-                            <div>
-                                <label class="text-xs font-bold text-cyan-400">My Mission:</label>
-                                <textarea placeholder="e.g., Protect the environment, Cure diseases..." class="w-full bg-gray-900 border border-gray-600 rounded-md p-2 text-sm text-white focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none h-20 resize-none"></textarea>
-                            </div>
-                             <div>
-                                <label class="text-xs font-bold text-cyan-400">What Makes Me Unique:</label>
-                                <textarea placeholder="e.g., I speak three languages, I notice details others miss..." class="w-full bg-gray-900 border border-gray-600 rounded-md p-2 text-sm text-white focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none h-20 resize-none"></textarea>
-                            </div>
-                        </form>
-                    </div>
-
-                     <div class="bg-gray-800 border border-gray-700 rounded-xl p-4">
-                        <h4 class="text-lg font-bold text-center text-white mb-2">📊 MY STEM STATS</h4>
-                        <p class="text-center text-xs text-gray-400 mb-4">Track your tokens as you make choices!</p>
-                        <div class="space-y-3">
-                            <!-- Computing -->
-                            <div class="progress-bar">
-                                <div class="flex justify-between items-center mb-1">
-                                    <span class="text-sm font-bold text-white">💻 Computing & Data</span>
-                                    <span class="count-display text-xs text-gray-400">0/5</span>
-                                </div>
-                                <div class="w-full bg-gray-700 rounded-full h-2.5"><div class="progress-fill computing-fill bg-blue-500 h-2.5 rounded-full transition-all duration-500" style="width: 0%"></div></div>
-                            </div>
-                            <!-- Science -->
-                            <div class="progress-bar">
-                                <div class="flex justify-between items-center mb-1">
-                                    <span class="text-sm font-bold text-white">🔬 Science & Discovery</span>
-                                    <span class="count-display text-xs text-gray-400">0/5</span>
-                                </div>
-                                <div class="w-full bg-gray-700 rounded-full h-2.5"><div class="progress-fill science-fill bg-pink-500 h-2.5 rounded-full transition-all duration-500" style="width: 0%"></div></div>
-                            </div>
-                            <!-- Engineering -->
-                            <div class="progress-bar">
-                                <div class="flex justify-between items-center mb-1">
-                                    <span class="text-sm font-bold text-white">⚙️ Engineering & Tech</span>
-                                    <span class="count-display text-xs text-gray-400">0/5</span>
-                                </div>
-                                <div class="w-full bg-gray-700 rounded-full h-2.5"><div class="progress-fill engineering-fill bg-teal-500 h-2.5 rounded-full transition-all duration-500" style="width: 0%"></div></div>
-                            </div>
-                        </div>
-                        <div class="mt-4 text-center bg-gray-900/50 p-3 rounded-md">
-                            <p class="text-sm text-gray-300"><strong>Your STEM Profile:</strong> <span id="stem-profile" class="font-bold text-cyan-400">Make a choice to see!</span></p>
-                        </div>
-                        <button id="export-button" class="mt-4 w-full flex items-center justify-center gap-2 bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-3 px-4 rounded-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                              <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-                            </svg>
-                            <span>Export My Profile</span>
-                        </button>
+            <div class="p-6 md:p-8">
+                <!-- NEW: Progress Map -->
+                <div class="mb-10 px-4">
+                    <div class="flex items-center" id="progress-map-container">
+                        <!-- Icons will be injected by JavaScript -->
                     </div>
                 </div>
 
-                <!-- Right Panel -->
-                <div class="w-full lg:w-3/5">
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <!-- Scenario Cards -->
-                        <div class="scenario-card bg-gray-800 border border-gray-700 rounded-xl p-4 flex flex-col gap-3">
-                            <h3 class="font-bold text-white">🏥 The School Health Crisis</h3>
-                            <p class="text-sm text-gray-400 flex-grow">Students are getting sick, and the school nurse notices patterns. The principal asks for your help to solve this mystery.</p>
-                            <div class="scenario-paths flex flex-col gap-2">
-                                <div class="path-chip comp cursor-pointer bg-blue-600 hover:bg-blue-500 p-2 rounded-md text-center text-xs font-bold transition-all border-2 border-transparent">💻 Track data & find illness patterns</div>
-                                <div class="path-chip sci cursor-pointer bg-pink-600 hover:bg-pink-500 p-2 rounded-md text-center text-xs font-bold transition-all border-2 border-transparent">🔬 Test what's causing the illness</div>
-                                <div class="path-chip eng cursor-pointer bg-teal-600 hover:bg-teal-500 p-2 rounded-md text-center text-xs font-bold transition-all border-2 border-transparent">⚙️ Design better air filtration systems</div>
-                            </div>
-                            <div>
-                                <label class="text-xs font-bold text-cyan-400">My approach:</label>
-                                <textarea placeholder="How would you do it?" class="w-full bg-gray-900 border border-gray-600 rounded-md p-2 text-sm mt-1 h-16 resize-none focus:ring-2 focus:ring-cyan-500 outline-none"></textarea>
-                            </div>
-                        </div>
+                <!-- Step 1: Introduction -->
+                <div id="step-1" class="step active">
+                    <div class="text-center"><h2 class="text-2xl font-bold text-white mb-4">Welcome, Future Innovator!</h2><p class="text-gray-300 mb-6 max-w-2xl mx-auto">You're about to embark on a quest to uncover your hidden talents in Science, Technology, Engineering, and Math. Get ready to tackle real-world challenges and discover your unique problem-solving style.</p></div>
+                    <div class="bg-gray-700/50 text-white p-6 rounded-xl"><h3 class="font-bold text-lg text-cyan-400 mb-3 text-center">🎯 How to Play:</h3><ol class="list-decimal list-inside space-y-2 text-center max-w-md mx-auto"><li>First, you'll create your unique STEM hero persona.</li><li>Next, you'll face a series of challenges, choosing the path that best fits your thinking and describing your approach.</li><li>Based on your choices, we'll reveal your detailed STEM profile and strengths.</li><li>Finally, you can export and share your personalized results!</li></ol></div>
+                </div>
 
-                         <div class="scenario-card bg-gray-800 border border-gray-700 rounded-xl p-4 flex flex-col gap-3">
-                            <h3 class="font-bold text-white">🌊 The Polluted Lake</h3>
-                            <p class="text-sm text-gray-400 flex-grow">The local lake is turning green and fish are dying. Your town needs to figure out what's happening and how to fix it quickly.</p>
-                            <div class="scenario-paths flex flex-col gap-2">
-                                <div class="path-chip comp cursor-pointer bg-blue-600 hover:bg-blue-500 p-2 rounded-md text-center text-xs font-bold transition-all border-2 border-transparent">💻 Model water quality data over time</div>
-                                <div class="path-chip sci cursor-pointer bg-pink-600 hover:bg-pink-500 p-2 rounded-md text-center text-xs font-bold transition-all border-2 border-transparent">🔬 Test water chemistry and organisms</div>
-                                <div class="path-chip eng cursor-pointer bg-teal-600 hover:bg-teal-500 p-2 rounded-md text-center text-xs font-bold transition-all border-2 border-transparent">⚙️ Build water cleanup systems</div>
-                            </div>
-                            <div>
-                                <label class="text-xs font-bold text-cyan-400">My approach:</label>
-                                <textarea placeholder="How would you do it?" class="w-full bg-gray-900 border border-gray-600 rounded-md p-2 text-sm mt-1 h-16 resize-none focus:ring-2 focus:ring-cyan-500 outline-none"></textarea>
-                            </div>
-                        </div>
+                <!-- Step 2: Create Character -->
+                <div id="step-2" class="step">
+                     <div class="bg-gray-800 border border-gray-700 rounded-xl p-6"><h3 class="text-xl font-bold text-center text-white mb-2">🎭 Create Your STEM Character</h3><p class="text-center text-sm text-gray-400 mb-6">Imagine yourself as a STEM hero! What makes you special and unique?</p><form id="character-form" class="space-y-4 max-w-lg mx-auto"><div><label class="text-sm font-bold text-cyan-400">My STEM Hero Name:</label><input type="text" name="heroName" placeholder="e.g., Dr. Data, Code Crusher..." class="w-full bg-gray-900 border border-gray-600 rounded-md p-2 mt-1 text-white focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none" required></div><div><label class="text-sm font-bold text-cyan-400">My Superpower:</label><input type="text" name="superpower" placeholder="e.g., Finding patterns, Making complex things simple..." class="w-full bg-gray-900 border border-gray-600 rounded-md p-2 mt-1 text-white focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none" required></div><div><label class="text-sm font-bold text-cyan-400">My Mission:</label><textarea name="mission" placeholder="e.g., Protect the environment, Cure diseases..." class="w-full bg-gray-900 border border-gray-600 rounded-md p-2 mt-1 text-white focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none h-20 resize-none" required></textarea></div><div><label class="text-sm font-bold text-cyan-400">My Origin Story (What makes me unique):</label><textarea name="originStory" placeholder="e.g., I grew up near the ocean, which made me curious about marine life..." class="w-full bg-gray-900 border border-gray-600 rounded-md p-2 mt-1 text-white focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none h-20 resize-none" required></textarea></div></form></div>
+                </div>
 
-                        <div class="scenario-card bg-gray-800 border border-gray-700 rounded-xl p-4 flex flex-col gap-3">
-                            <h3 class="font-bold text-white">🎮 The Broken Educational Game</h3>
-                            <p class="text-sm text-gray-400 flex-grow">Your favorite educational game crashes constantly. The school wants to fix it so everyone can learn better.</p>
-                            <div class="scenario-paths flex flex-col gap-2">
-                                <div class="path-chip comp cursor-pointer bg-blue-600 hover:bg-blue-500 p-2 rounded-md text-center text-xs font-bold transition-all border-2 border-transparent">💻 Debug the code and fix crashes</div>
-                                <div class="path-chip sci cursor-pointer bg-pink-600 hover:bg-pink-500 p-2 rounded-md text-center text-xs font-bold transition-all border-2 border-transparent">🔬 Study how students actually use it</div>
-                                <div class="path-chip eng cursor-pointer bg-teal-600 hover:bg-teal-500 p-2 rounded-md text-center text-xs font-bold transition-all border-2 border-transparent">⚙️ Redesign the user interface</div>
-                            </div>
-                            <div>
-                                <label class="text-xs font-bold text-cyan-400">My approach:</label>
-                                <textarea placeholder="How would you do it?" class="w-full bg-gray-900 border border-gray-600 rounded-md p-2 text-sm mt-1 h-16 resize-none focus:ring-2 focus:ring-cyan-500 outline-none"></textarea>
-                            </div>
-                        </div>
+                <!-- Step 3: Scenarios -->
+                <div id="step-3" class="step">
+                    <div id="scenario-container" class="bg-gray-800 border border-gray-700 rounded-xl p-6"></div>
+                </div>
 
-                        <div class="scenario-card bg-gray-800 border border-gray-700 rounded-xl p-4 flex flex-col gap-3">
-                            <h3 class="font-bold text-white">🌱 The Failing Garden</h3>
-                            <p class="text-sm text-gray-400 flex-grow">The school garden won't grow despite constant care. Plants are dying and nobody knows why.</p>
-                            <div class="scenario-paths flex flex-col gap-2">
-                                <div class="path-chip comp cursor-pointer bg-blue-600 hover:bg-blue-500 p-2 rounded-md text-center text-xs font-bold transition-all border-2 border-transparent">💻 Track growth patterns and conditions</div>
-                                <div class="path-chip sci cursor-pointer bg-pink-600 hover:bg-pink-500 p-2 rounded-md text-center text-xs font-bold transition-all border-2 border-transparent">🔬 Test soil, water, and plant health</div>
-                                <div class="path-chip eng cursor-pointer bg-teal-600 hover:bg-teal-500 p-2 rounded-md text-center text-xs font-bold transition-all border-2 border-transparent">⚙️ Design better irrigation systems</div>
-                            </div>
-                            <div>
-                                <label class="text-xs font-bold text-cyan-400">My approach:</label>
-                                <textarea placeholder="How would you do it?" class="w-full bg-gray-900 border border-gray-600 rounded-md p-2 text-sm mt-1 h-16 resize-none focus:ring-2 focus:ring-cyan-500 outline-none"></textarea>
-                            </div>
-                        </div>
-                        
-                        <!-- Create Your Own Challenge -->
-                        <div class="scenario-card md:col-span-2 bg-gray-800 border border-cyan-500/50 rounded-xl p-4 flex flex-col gap-3 shadow-lg shadow-cyan-500/10">
-                            <h3 class="font-bold text-cyan-400 text-center text-lg">🚀 YOUR CHALLENGE TO SOLVE</h3>
-                            <p class="text-sm text-gray-300 flex-grow text-center">What problem do YOU want to solve in your school, community, or the world?</p>
-                            <div>
-                                <label class="text-xs font-bold text-cyan-400">The problem I want to solve is:</label>
-                                <textarea placeholder="e.g., Students at my school throw away tons of food..." class="w-full bg-gray-900 border border-gray-600 rounded-md p-2 text-sm mt-1 h-16 resize-none focus:ring-2 focus:ring-cyan-500 outline-none"></textarea>
-                            </div>
-                            <div class="scenario-paths flex flex-col sm:flex-row gap-2">
-                                <div class="path-chip comp cursor-pointer bg-blue-600 hover:bg-blue-500 p-2 rounded-md text-center text-xs font-bold transition-all flex-1 border-2 border-transparent">💻 Use computing/data to solve it</div>
-                                <div class="path-chip sci cursor-pointer bg-pink-600 hover:bg-pink-500 p-2 rounded-md text-center text-xs font-bold transition-all flex-1 border-2 border-transparent">🔬 Use science/research to solve it</div>
-                                <div class="path-chip eng cursor-pointer bg-teal-600 hover:bg-teal-500 p-2 rounded-md text-center text-xs font-bold transition-all flex-1 border-2 border-transparent">⚙️ Use engineering/design to solve it</div>
-                            </div>
-                            <div>
-                                <label class="text-xs font-bold text-cyan-400">My chosen approach and how I would do it:</label>
-                                <textarea placeholder="e.g., I chose engineering because I'd design a smart lunch tray..." class="w-full bg-gray-900 border border-gray-600 rounded-md p-2 text-sm mt-1 h-16 resize-none focus:ring-2 focus:ring-cyan-500 outline-none"></textarea>
-                            </div>
-                        </div>
+                <!-- Step 4: Results -->
+                <div id="step-4" class="step">
+                    <div id="quest-results-area" class="bg-gray-900 p-6 rounded-lg">
+                        <div class="text-center mb-6"><h2 class="text-2xl font-bold text-cyan-400">🎉 Quest Complete! 🎉</h2><p class="text-gray-300">Here is your personalized STEM Profile based on your choices.</p></div>
+                        <div class="grid md:grid-cols-2 gap-6"><div class="bg-gray-800 border border-gray-700 rounded-xl p-4"><h3 class="text-lg font-bold text-center text-white mb-3">🎭 My STEM Character</h3><div id="character-recap" class="space-y-3 text-sm"></div></div><div class="bg-gray-800 border border-gray-700 rounded-xl p-4"><h4 class="text-lg font-bold text-center text-white mb-2">📊 MY STEM STATS</h4><div id="stats-container" class="space-y-3 mt-4"></div><div class="mt-4 text-center bg-gray-900/50 p-3 rounded-md"><p class="text-sm text-gray-300"><strong>Your STEM Profile:</strong> <span id="stem-profile" class="font-bold text-cyan-400"></span></p></div></div></div>
+                        <div class="mt-8"><h3 class="text-xl font-bold text-center text-white mb-4">Your STEM Strengths Uncovered</h3><div id="strengths-recap-container" class="space-y-4"></div></div>
+                        <div class="mt-8"><h3 class="text-xl font-bold text-center text-white mb-4">My Quest Journey</h3><div id="scenario-recap-container" class="space-y-4"></div></div>
+                        <div class="mt-8 text-center"><button id="export-button" class="w-full max-w-xs mx-auto flex items-center justify-center gap-2 bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-3 px-4 rounded-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clip-rule="evenodd" /></svg><span>Export My Profile</span></button></div>
                     </div>
+                </div>
+
+                <!-- Navigation -->
+                <div class="mt-8 flex justify-between items-center">
+                    <button id="back-button" class="nav-button bg-gray-600 hover:bg-gray-500 text-white font-bold py-2 px-6 rounded-lg">Back</button>
+                    <button id="next-button" class="nav-button bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-2 px-6 rounded-lg">Next</button>
                 </div>
             </div>
         </div>
     </main>
 
+    <!-- Results Modal -->
+    <div id="results-modal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50 opacity-0 pointer-events-none">
+        <div class="bg-gray-800 rounded-2xl shadow-xl shadow-cyan-500/20 text-center p-8 max-w-md w-full transform scale-95 opacity-0">
+            <img id="modal-badge" src="" alt="STEM Badge" class="w-24 h-24 mx-auto mb-4 rounded-full border-4 border-cyan-500">
+            <h2 id="modal-title" class="text-2xl font-bold text-white mb-2"></h2>
+            <p id="modal-subtitle" class="text-cyan-300 text-lg mb-6"></p>
+            <p class="text-gray-400 text-sm mb-6">Click 'View My Profile' to see your detailed results and continue your STEM journey in the real world!</p>
+            <button id="close-modal-button" class="nav-button bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-3 px-8 rounded-lg">View My Profile</button>
+        </div>
+    </div>
+    
     <!-- Footer -->
     <footer class="bg-gray-800 border-t border-gray-700 mt-16">
         <div class="container mx-auto px-6 py-8 text-center text-gray-400 text-sm">
@@ -248,118 +176,316 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            let stemStats = { computing: 0, science: 0, engineering: 0 };
-            const totalScenarios = document.querySelectorAll('.scenario-card').length;
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- CONFIGURATION & STATE ---
+        const totalSteps = 4;
+        let currentStep = 1;
+        let characterData = {};
+        let stemStats = { computing: 0, science: 0, engineering: 0 };
+        let scenarioAnswers = []; 
+        let modalShown = false;
 
-            const pathChips = document.querySelectorAll('.path-chip');
-            pathChips.forEach(chip => {
-                chip.addEventListener('click', function() {
-                    const parentPaths = this.parentElement;
-                    parentPaths.querySelectorAll('.path-chip').forEach(sibling => {
-                        sibling.classList.remove('selected');
-                    });
-                    this.classList.add('selected');
-                    updateStats();
-                });
+        // --- ENHANCED DATA ---
+        const scenarios = [
+            { title: "🏥 The School Health Crisis", image: "https://placehold.co/600x300/111827/38bdf8?text=Futuristic+Nurse's+Office", description: "An unusual number of students are visiting the nurse with similar symptoms. It's more than just a coincidence. The principal, concerned about a potential outbreak, has tasked you with getting to the bottom of this health mystery before it spreads.", choices: [ { text: "Track data & find illness patterns", type: "comp" }, { text: "Test what's causing the illness", type: "sci" }, { text: "Design better air filtration systems", type: "eng" } ] },
+            { title: "🌊 The Polluted Lake", image: "https://placehold.co/600x300/111827/ec4899?text=Glowing+Algae+in+Lake", description: "The town's beloved lake, a hub for recreation, is in trouble. A strange algae is blooming, the water is murky, and fish are washing ashore. Your community is counting on you to diagnose the problem and restore the lake's health.", choices: [ { text: "Model water quality data over time", type: "comp" }, { text: "Test water chemistry and organisms", type: "sci" }, { text: "Build water cleanup systems", type: "eng" } ] },
+            { title: "🎮 The Broken Educational Game", image: "https://placehold.co/600x300/111827/14b8a6?text=Glitching+Video+Game", description: "A popular educational game used by your school is riddled with bugs, making it crash and freeze. Learning has come to a halt. The school needs a hero to dive into the game's code and mechanics to make it playable and effective again.", choices: [ { text: "Debug the code and fix crashes", type: "comp" }, { text: "Study how students actually use it", type: "sci" }, { text: "Redesign the user interface", type: "eng" } ] },
+            { title: "🌱 The Failing Garden", image: "https://placehold.co/600x300/111827/84cc16?text=High-Tech+Wilting+Garden", description: "The community garden, meant to provide fresh produce, is failing. Despite regular watering and care, plants are wilting and yields are low. It's a mystery that threatens the food supply, and you've been asked to investigate.", choices: [ { text: "Track growth patterns and conditions", type: "comp" }, { text: "Test soil, water, and plant health", type: "sci" }, { text: "Design better irrigation systems", type: "eng" } ] }
+        ];
+        
+        const stemFieldInfo = {
+            comp: { title: "💻 Computing & Data", strengths: "You have a knack for logic, patterns, and organization. You excel at breaking down complex problems into manageable steps and using data to find hidden truths.", application: "This skillset is crucial for everything from creating software and designing algorithms to analyzing player behavior and ensuring cybersecurity.", careers: ["Software Developer", "Data Scientist", "Cybersecurity Analyst", "AI Specialist"], badge: "https://placehold.co/100x100/38bdf8/ffffff?text=DATA" },
+            sci: { title: "🔬 Science & Discovery", strengths: "You are driven by curiosity and a desire to understand 'why.' You enjoy experimenting, researching, and using the scientific method to uncover new knowledge.", application: "Scientists are at the forefront of innovation, whether it's developing new medicines, understanding ecosystems, or exploring the universe. In games, this translates to creating realistic physics and believable worlds.", careers: ["Biologist", "Chemist", "Environmental Scientist", "Medical Researcher"], badge: "https://placehold.co/100x100/ec4899/ffffff?text=SCIENCE" },
+            eng: { title: "⚙️ Engineering & Tech", strengths: "You are a builder and a designer at heart. You see problems and immediately think of how to construct a solution, whether it's a physical object or a digital system.", application: "Engineers turn scientific discoveries into real-world tools and technologies. In gaming, they build the engines, design the hardware, and create the user interfaces that make play possible.", careers: ["Mechanical Engineer", "Civil Engineer", "Robotics Engineer", "UI/UX Designer"], badge: "https://placehold.co/100x100/14b8a6/ffffff?text=TECH" }
+        };
+
+        let currentScenarioIndex = 0;
+
+        // --- DOM ELEMENTS ---
+        const steps = document.querySelectorAll('.step');
+        const nextButton = document.getElementById('next-button');
+        const backButton = document.getElementById('back-button');
+        const characterForm = document.getElementById('character-form');
+        const scenarioContainer = document.getElementById('scenario-container');
+        const exportButton = document.getElementById('export-button');
+        const scenarioRecapContainer = document.getElementById('scenario-recap-container');
+        const strengthsRecapContainer = document.getElementById('strengths-recap-container');
+        const modal = document.getElementById('results-modal');
+        const closeModalButton = document.getElementById('close-modal-button');
+        const progressMapContainer = document.getElementById('progress-map-container');
+
+        // --- PROGRESS MAP DATA ---
+        const progressMapSteps = [
+            { icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>` }, // Origin Story
+            { icon: `<svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>` }, // Health Cross
+            { icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2.69l5.66 5.66a8 8 0 11-11.32 0L12 2.69z"></path></svg>` }, // Water Drop
+            { icon: `<svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 6h2v2H6V6zm4 0h2v2h-2V6zm4 0h2v2h-2V6zM4 8h2v2H4V8zm12 0h2v2h-2V8zM6 10h10v2H6v-2zm2 2h6v2H8v-2zM6 16h2v-2H6v2zm8 0h2v-2h-2v2z"/></svg>` }, // Space Invader
+            { icon: `<svg class="w-7 h-7" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 3a1 1 0 00-1 1v1.586l-2.293-2.293a1 1 0 10-1.414 1.414L7.586 7H6a1 1 0 00-1 1 1.5 1.5 0 000 3 1 1 0 001 1h1.586l-2.293 2.293a1 1 0 101.414 1.414L9 12.414V14a1 1 0 001 1 1.5 1.5 0 003 0 1 1 0 00-1-1v-1.586l2.293 2.293a1 1 0 101.414-1.414L12.414 11H14a1 1 0 001-1 1.5 1.5 0 000-3 1 1 0 00-1-1h-1.586l2.293-2.293a1 1 0 10-1.414-1.414L11 5.586V4a1 1 0 00-1-1z" clip-rule="evenodd" /></svg>` }, // Flower
+            { icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>` }  // Star
+        ];
+
+        // --- FUNCTIONS ---
+        function generateProgressMap() {
+            progressMapContainer.innerHTML = '';
+            progressMapSteps.forEach((step, index) => {
+                const iconDiv = document.createElement('div');
+                iconDiv.id = `progress-icon-${index}`;
+                iconDiv.className = 'progress-icon w-10 h-10 rounded-full border-2 flex items-center justify-center';
+                iconDiv.innerHTML = step.icon;
+                progressMapContainer.appendChild(iconDiv);
+
+                if (index < progressMapSteps.length - 1) {
+                    const lineDiv = document.createElement('div');
+                    lineDiv.id = `progress-line-${index}`;
+                    lineDiv.className = 'progress-line h-1 flex-grow';
+                    progressMapContainer.appendChild(lineDiv);
+                }
             });
+        }
 
-            function updateStats() {
-                stemStats = { computing: 0, science: 0, engineering: 0 };
-                const selectedChips = document.querySelectorAll('.path-chip.selected');
-                
-                selectedChips.forEach(chip => {
-                    if (chip.classList.contains('comp')) stemStats.computing++;
-                    else if (chip.classList.contains('sci')) stemStats.science++;
-                    else if (chip.classList.contains('eng')) stemStats.engineering++;
-                });
+        function updateProgressMap() {
+            let currentProgressPoint = 0;
+            if (currentStep === 2) currentProgressPoint = 0;
+            if (currentStep === 3) currentProgressPoint = 1 + currentScenarioIndex;
+            if (currentStep === 4) currentProgressPoint = progressMapSteps.length -1;
 
-                updateProgressBars();
-                updateProfile();
-            }
+            for (let i = 0; i < progressMapSteps.length; i++) {
+                const icon = document.getElementById(`progress-icon-${i}`);
+                const line = document.getElementById(`progress-line-${i}`);
 
-            function updateProgressBars() {
-                const maxChoices = totalScenarios;
-                
-                const compPercent = (stemStats.computing / maxChoices) * 100;
-                document.querySelector('.computing-fill').style.width = `${compPercent}%`;
-                document.querySelector('.progress-bar:nth-child(1) .count-display').textContent = `${stemStats.computing}/${maxChoices}`;
+                icon.classList.remove('active', 'completed');
+                if (line) line.classList.remove('completed');
 
-                const sciPercent = (stemStats.science / maxChoices) * 100;
-                document.querySelector('.science-fill').style.width = `${sciPercent}%`;
-                document.querySelector('.progress-bar:nth-child(2) .count-display').textContent = `${stemStats.science}/${maxChoices}`;
-
-                const engPercent = (stemStats.engineering / maxChoices) * 100;
-                document.querySelector('.engineering-fill').style.width = `${engPercent}%`;
-                document.querySelector('.progress-bar:nth-child(3) .count-display').textContent = `${stemStats.engineering}/${maxChoices}`;
-            }
-
-            function updateProfile() {
-                const profileElement = document.getElementById('stem-profile');
-                const total = stemStats.computing + stemStats.science + stemStats.engineering;
-
-                if (total === 0) {
-                    profileElement.textContent = 'Make a choice to see!';
-                    return;
-                }
-
-                const interests = [];
-                if (stemStats.computing > 0) interests.push({ name: 'Computing & Data', score: stemStats.computing });
-                if (stemStats.science > 0) interests.push({ name: 'Science & Discovery', score: stemStats.science });
-                if (stemStats.engineering > 0) interests.push({ name: 'Engineering & Tech', score: stemStats.engineering });
-
-                interests.sort((a, b) => b.score - a.score);
-
-                if (interests.length === 1) {
-                    profileElement.textContent = `A ${interests[0].name} Specialist!`;
-                } else if (interests.length === 2) {
-                    if (interests[0].score === interests[1].score) {
-                        profileElement.textContent = `A hybrid of ${interests[0].name} and ${interests[1].name}!`;
-                    } else {
-                        profileElement.textContent = `A ${interests[0].name} Innovator with a knack for ${interests[1].name}!`;
-                    }
-                } else if (interests.length === 3) {
-                     if (interests[0].score === interests[1].score && interests[1].score === interests[2].score) {
-                        profileElement.textContent = `A balanced STEM Renaissance Person!`;
-                    } else {
-                       profileElement.textContent = `A versatile ${interests[0].name} lead!`;
-                    }
+                if (i < currentProgressPoint) {
+                    icon.classList.add('completed');
+                    if (line) line.classList.add('completed');
+                } else if (i === currentProgressPoint) {
+                    icon.classList.add('active');
                 }
             }
+        }
+
+        function updateUI() {
+            steps.forEach(step => step.classList.remove('active'));
+            document.getElementById(`step-${currentStep}`).classList.add('active');
+
+            backButton.style.display = currentStep > 1 ? 'block' : 'none';
+            nextButton.style.display = currentStep < totalSteps ? 'block' : 'none';
             
-            // --- EXPORT FUNCTIONALITY ---
-            const exportButton = document.getElementById('export-button');
-            const exportArea = document.getElementById('quest-results-area');
+            if (currentStep === 2) validateCharacterForm();
+            else if (currentStep === 3) validateScenarioChoice();
+            else nextButton.disabled = false;
+            
+            if (currentStep === 3) renderScenario(currentScenarioIndex);
+            
+            if (currentStep === totalSteps) {
+                displayResults();
+                if (!modalShown) {
+                    showResultsModal();
+                    modalShown = true;
+                }
+            }
+            updateProgressMap();
+        }
 
-            exportButton.addEventListener('click', () => {
-                exportButton.querySelector('span').textContent = 'Generating...';
-                exportButton.disabled = true;
+        function renderScenario(index) {
+            const scenario = scenarios[index];
+            const savedApproach = scenarioAnswers[index] ? scenarioAnswers[index].approach : '';
+            const choiceHTML = scenario.choices.map((choice, i) => `<div class="path-chip ${choice.type} cursor-pointer bg-gray-700 hover:bg-gray-600 p-3 rounded-md text-center text-sm font-bold transition-all border-2 border-transparent" data-type="${choice.type}" data-index="${i}">${choice.text}</div>`).join('');
 
-                html2canvas(exportArea, {
-                    backgroundColor: '#111827', 
-                    scale: 2
-                }).then(canvas => {
-                    const link = document.createElement('a');
-                    link.download = 'My-STEM-Quest-Profile.png';
-                    link.href = canvas.toDataURL('image/png');
-                    link.click();
-                    link.remove();
-                    exportButton.querySelector('span').textContent = 'Export My Profile';
-                    exportButton.disabled = false;
-                }).catch(err => {
-                    console.error('Oops, something went wrong!', err);
-                    exportButton.querySelector('span').textContent = 'Export Failed - Try Again';
-                    exportButton.disabled = false;
+            scenarioContainer.innerHTML = `<img src="${scenario.image}" alt="${scenario.title}" class="w-full h-48 object-cover rounded-lg mb-4"><h3 class="font-bold text-white text-lg text-center">${scenario.title} (${index + 1}/${scenarios.length})</h3><p class="text-sm text-gray-300 text-center my-4">${scenario.description}</p><div class="scenario-paths flex flex-col gap-3 mt-4">${choiceHTML}</div><div class="mt-6"><label class="text-sm font-bold text-cyan-400">In my own words, here's how I would approach this:</label><textarea id="scenario-approach-input" placeholder="Describe your unique solution..." class="w-full bg-gray-900 border border-gray-600 rounded-md p-2 mt-2 text-white focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none h-24 resize-none">${savedApproach}</textarea></div>`;
+            
+            scenarioContainer.querySelectorAll('.path-chip').forEach(chip => {
+                chip.addEventListener('click', function() {
+                    scenarioContainer.querySelectorAll('.path-chip').forEach(c => c.classList.remove('selected'));
+                    this.classList.add('selected');
+                    validateScenarioChoice();
                 });
             });
 
-            // Mobile menu toggle
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
+            if (scenarioAnswers[index] && scenarioAnswers[index].choiceIndex !== undefined) {
+                const selectedChip = scenarioContainer.querySelector(`.path-chip[data-index='${scenarioAnswers[index].choiceIndex}']`);
+                if (selectedChip) selectedChip.classList.add('selected');
+            }
+            validateScenarioChoice();
+        }
+
+        function displayResults() {
+            const recapContainer = document.getElementById('character-recap');
+            recapContainer.innerHTML = `<p><strong>Hero Name:</strong> <span class="text-cyan-400">${characterData.heroName || 'N/A'}</span></p><p><strong>Superpower:</strong> <span class="text-gray-300">${characterData.superpower || 'N/A'}</span></p><p><strong>Mission:</strong> <span class="text-gray-300">${characterData.mission || 'N/A'}</span></p><p class="mt-2"><strong>Origin Story:</strong> <span class="text-gray-300">${characterData.originStory || 'N/A'}</span></p>`;
+
+            calculateStats();
+            const statsContainer = document.getElementById('stats-container');
+            const maxChoices = scenarios.length;
+            statsContainer.innerHTML = `<div class="progress-bar"><div class="flex justify-between items-center mb-1"><span class="text-sm font-bold text-white">💻 Computing & Data</span><span class="text-xs text-gray-400">${stemStats.computing}/${maxChoices}</span></div><div class="w-full bg-gray-700 rounded-full h-2.5"><div class="bg-blue-500 h-2.5 rounded-full" style="width: ${(stemStats.computing / maxChoices) * 100}%"></div></div></div><div class="progress-bar"><div class="flex justify-between items-center mb-1"><span class="text-sm font-bold text-white">🔬 Science & Discovery</span><span class="text-xs text-gray-400">${stemStats.science}/${maxChoices}</span></div><div class="w-full bg-gray-700 rounded-full h-2.5"><div class="bg-pink-500 h-2.5 rounded-full" style="width: ${(stemStats.science / maxChoices) * 100}%"></div></div></div><div class="progress-bar"><div class="flex justify-between items-center mb-1"><span class="text-sm font-bold text-white">⚙️ Engineering & Tech</span><span class="text-xs text-gray-400">${stemStats.engineering}/${maxChoices}</span></div><div class="w-full bg-gray-700 rounded-full h-2.5"><div class="bg-teal-500 h-2.5 rounded-full" style="width: ${(stemStats.engineering / maxChoices) * 100}%"></div></div></div>`;
+            
+            updateProfileText();
+            displayStrengthsAnalysis();
+
+            scenarioRecapContainer.innerHTML = '';
+            scenarios.forEach((scenario, index) => {
+                const answer = scenarioAnswers[index];
+                if (!answer) return;
+                const chosenOptionText = scenario.choices[answer.choiceIndex].text;
+                const approachText = answer.approach || "No approach described.";
+                const recapHTML = `<div class="bg-gray-800 border border-gray-700 rounded-xl p-4"><h4 class="font-bold text-white">${scenario.title}</h4><p class="text-sm text-cyan-400 mt-2"><strong>My Chosen Path:</strong> ${chosenOptionText}</p><p class="text-sm text-gray-300 mt-2"><strong>My Approach:</strong></p><p class="text-sm bg-gray-900 p-2 rounded-md mt-1">${approachText}</p></div>`;
+                scenarioRecapContainer.innerHTML += recapHTML;
+            });
+        }
+        
+        function showResultsModal() {
+            calculateStats();
+            const modalTitle = document.getElementById('modal-title');
+            const modalSubtitle = document.getElementById('modal-subtitle');
+            const modalBadge = document.getElementById('modal-badge');
+
+            modalTitle.textContent = `Thanks ${characterData.heroName || 'Hero'}, you saved the day!`;
+
+            const interests = [];
+            if (stemStats.computing > 0) interests.push({ id: 'comp', name: 'Computing & Data', score: stemStats.computing });
+            if (stemStats.science > 0) interests.push({ id: 'sci', name: 'Science & Discovery', score: stemStats.science });
+            if (stemStats.engineering > 0) interests.push({ id: 'eng', name: 'Engineering & Tech', score: stemStats.engineering });
+            interests.sort((a, b) => b.score - a.score);
+
+            let primaryField = { name: 'Versatile Hero', id: 'default' };
+            if (interests.length > 0) primaryField = interests[0];
+            
+            modalSubtitle.textContent = `Your actions show you're a real ${primaryField.name} innovator!`;
+            
+            const defaultBadge = 'https://placehold.co/100x100/a78bfa/ffffff?text=STEM';
+            modalBadge.src = stemFieldInfo[primaryField.id] ? stemFieldInfo[primaryField.id].badge : defaultBadge;
+
+            modal.classList.add('visible');
+        }
+
+        function closeModal() {
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modal.classList.remove('visible');
+        }
+
+        function displayStrengthsAnalysis() {
+            strengthsRecapContainer.innerHTML = '';
+            const interests = [];
+            if (stemStats.computing > 0) interests.push({ id: 'comp', score: stemStats.computing });
+            if (stemStats.science > 0) interests.push({ id: 'sci', score: stemStats.science });
+            if (stemStats.engineering > 0) interests.push({ id: 'eng', score: stemStats.engineering });
+            interests.sort((a, b) => b.score - a.score);
+
+            if (interests.length === 0) {
+                strengthsRecapContainer.innerHTML = '<p class="text-center text-gray-400">Make some choices in the scenarios to discover your strengths!</p>';
+                return;
+            }
+
+            interests.forEach(interest => {
+                const info = stemFieldInfo[interest.id];
+                const analysisHTML = `<div class="bg-gray-800 border border-gray-700 rounded-xl p-4"><h4 class="font-bold text-lg text-cyan-400">${info.title}</h4><p class="text-sm text-gray-300 mt-2"><strong>Your Strengths:</strong> ${info.strengths}</p><p class="text-sm text-gray-300 mt-3"><strong>In the Real World:</strong> ${info.application}</p><p class="text-sm text-gray-300 mt-3"><strong>Fields to Explore:</strong> <span class="font-semibold text-cyan-300">${info.careers.join(', ')}</span></p></div>`;
+                strengthsRecapContainer.innerHTML += analysisHTML;
+            });
+        }
+
+        function calculateStats() {
+            stemStats = { computing: 0, science: 0, engineering: 0 };
+            scenarioAnswers.forEach(answer => {
+                if(answer && answer.type) {
+                    if (answer.type === 'comp') stemStats.computing++;
+                    else if (answer.type === 'sci') stemStats.science++;
+                    else if (answer.type === 'eng') stemStats.engineering++;
+                }
+            });
+        }
+        
+        function updateProfileText() {
+            const profileElement = document.getElementById('stem-profile');
+            const interests = [];
+            if (stemStats.computing > 0) interests.push({ name: 'Computing & Data', score: stemStats.computing });
+            if (stemStats.science > 0) interests.push({ name: 'Science & Discovery', score: stemStats.science });
+            if (stemStats.engineering > 0) interests.push({ name: 'Engineering & Tech', score: stemStats.engineering });
+            interests.sort((a, b) => b.score - a.score);
+
+            if (interests.length === 0) profileElement.textContent = 'No choices made!';
+            else if (interests.length === 1) profileElement.textContent = `A ${interests[0].name} Specialist!`;
+            else if (interests.length === 2) {
+                if (interests[0].score === interests[1].score) profileElement.textContent = `A hybrid of ${interests[0].name} and ${interests[1].name}!`;
+                else profileElement.textContent = `A ${interests[0].name} Innovator with a knack for ${interests[1].name}!`;
+            } else if (interests.length === 3) {
+                 if (interests[0].score === interests[1].score && interests[1].score === interests[2].score) profileElement.textContent = `A balanced STEM Renaissance Person!`;
+                 else profileElement.textContent = `A versatile ${interests[0].name} Lead!`;
+            }
+        }
+        
+        function validateCharacterForm() {
+            const inputs = characterForm.querySelectorAll('input, textarea');
+            nextButton.disabled = !Array.from(inputs).every(input => input.value.trim() !== '');
+        }
+
+        function validateScenarioChoice() {
+            const selectedChip = scenarioContainer.querySelector('.path-chip.selected');
+            nextButton.disabled = !selectedChip;
+        }
+
+        // --- EVENT LISTENERS ---
+        nextButton.addEventListener('click', () => {
+            if (currentStep === 2) {
+                characterData = Object.fromEntries(new FormData(characterForm).entries());
+            }
+            if (currentStep === 3) {
+                const selectedChip = scenarioContainer.querySelector('.path-chip.selected');
+                const approachInput = document.getElementById('scenario-approach-input');
+                if (selectedChip) {
+                    scenarioAnswers[currentScenarioIndex] = { type: selectedChip.dataset.type, choiceIndex: selectedChip.dataset.index, approach: approachInput.value.trim() };
+                    if (currentScenarioIndex < scenarios.length - 1) {
+                        currentScenarioIndex++;
+                        updateUI(); // Update UI to show next scenario
+                        return;
+                    }
+                }
+            }
+            if (currentStep < totalSteps) {
+                currentStep++;
+                updateUI();
+            }
+        });
+
+        backButton.addEventListener('click', () => {
+            if (currentStep > 1) {
+                if (currentStep === 3 && currentScenarioIndex > 0) {
+                    const approachInput = document.getElementById('scenario-approach-input');
+                    const selectedChip = scenarioContainer.querySelector('.path-chip.selected');
+                     if(selectedChip) scenarioAnswers[currentScenarioIndex] = { type: selectedChip.dataset.type, choiceIndex: selectedChip.dataset.index, approach: approachInput.value.trim() };
+                    currentScenarioIndex--;
+                } else {
+                    currentStep--;
+                }
+                updateUI();
+            }
+        });
+
+        characterForm.addEventListener('input', validateCharacterForm);
+        closeModalButton.addEventListener('click', closeModal);
+
+        exportButton.addEventListener('click', () => {
+            const exportArea = document.getElementById('quest-results-area');
+            exportButton.querySelector('span').textContent = 'Generating...';
+            exportButton.disabled = true;
+            html2canvas(exportArea, { backgroundColor: '#111827', scale: 2 }).then(canvas => {
+                const link = document.createElement('a');
+                link.download = 'My-STEM-Quest-Profile.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+                link.remove();
+                exportButton.querySelector('span').textContent = 'Export My Profile';
+                exportButton.disabled = false;
+            }).catch(err => {
+                console.error('Oops, something went wrong!', err);
+                exportButton.querySelector('span').textContent = 'Export Failed - Try Again';
+                exportButton.disabled = false;
             });
         });
+
+        // --- INITIALIZATION ---
+        generateProgressMap();
+        updateUI();
+    });
     </script>
 </body>
 </html>
