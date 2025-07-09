@@ -33,9 +33,6 @@
                 padding: 0;
                 box-shadow: none;
             }
-            .no-print {
-                display: none;
-            }
         }
         .page-content {
             font-family: 'Inter', sans-serif;
@@ -47,11 +44,6 @@
     </style>
 </head>
 <body>
-    <div class="no-print p-4 bg-gray-800 text-white text-center">
-        <h1 class="text-xl font-bold">Flyer Preview</h1>
-        <p>This is a preview of your full-page flyer. Use your browser's print function (Ctrl/Cmd + P) to print.</p>
-    </div>
-
     <div class="page">
         <div class="page-content">
             <!-- Header -->
@@ -59,7 +51,10 @@
                 <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/banner.png" alt="STEM + Games Banner" class="w-full rounded-lg object-cover" style="height: 2in;">
                 <h1 class="text-5xl font-black text-cyan-600 mt-6">Level Up Your World</h1>
                 <p class="text-lg text-gray-700 mt-2">
-                    An online resource for 4-H STEM Ambassadors, presented by Rutgers University Online Education Services.
+                    An online resource for 4-H STEM Ambassadors.
+                </p>
+                <p class="text-md text-gray-600 mt-2">
+                    Presented by <span class="font-semibold">Rutgers University Online Education Services</span> (uoes.rutgers.edu)
                 </p>
             </header>
 
@@ -91,7 +86,7 @@
                         <p class="text-sm text-gray-600 mt-1">Find free tools, art, and sound for your projects, and learn about the wide variety of career paths in the games industry.</p>
                     </div>
                     <div>
-                        <h3 class="text-lg font-bold text-cyan-700">🤝 Get Involved</h3>
+                        <h3 class="text-lg font-bold text-cyan-700">❤️ Get Involved</h3>
                         <p class="text-sm text-gray-600 mt-1">Discover programs and organizations that empower students to use technology and game design for social good.</p>
                     </div>
                 </div>
@@ -101,15 +96,10 @@
             <footer class="mt-8 pt-6 border-t border-gray-300 flex items-center justify-center gap-8">
                 <div class="text-center">
                     <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/qr.jpg" alt="QR Code" class="w-36 h-36 mx-auto">
-                    <p class="mt-2 font-bold text-xl text-gray-800">Scan to Explore!</p>
+                    <p class="mt-2 font-bold text-lg text-gray-800">Scan to Explore!</p>
                 </div>
                 <div class="text-left">
                     <p class="text-2xl font-bold text-cyan-700">go.rutgers.edu/4hstemgames</p>
-                    <p class="text-sm text-gray-600 mt-4">
-                         Presented by<br>
-                         <span class="font-semibold">Rutgers University Online Education Services</span><br>
-                         (uoes.rutgers.edu)
-                    </p>
                 </div>
             </footer>
         </div>
